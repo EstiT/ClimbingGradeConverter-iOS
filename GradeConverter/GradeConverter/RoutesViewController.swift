@@ -29,6 +29,8 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var gradesList: UITableView!
     
     @IBOutlet weak var schemeLabel: UILabel!
+    @IBOutlet weak var settingsImageView: UIImageView!
+    
     var selectedScheme = 0
     
 
@@ -48,6 +50,11 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         gradesList.dataSource = self
         gradesList.delegate = self
         gradesList.reloadData()
+        
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RoutesViewController.settingsTapped))
+        singleTap.numberOfTapsRequired = 1
+        settingsImageView.addGestureRecognizer(singleTap)
+        settingsImageView.isUserInteractionEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -152,6 +159,11 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
             }
         }
         return headerCell
+    }
+    
+    //- SETTINGS
+    
+    @objc func settingsTapped(){
     }
 }
 
