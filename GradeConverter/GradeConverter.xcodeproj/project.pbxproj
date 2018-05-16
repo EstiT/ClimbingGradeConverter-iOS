@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		224EB10720AC0EDF00C6BBD7 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EB10620AC0EDF00C6BBD7 /* TableCell.swift */; };
+		224EB10D20AC5DD800C6BBD7 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */; };
 		22640D2620749FBE0074E9AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22640D2520749FBE0074E9AD /* AppDelegate.swift */; };
 		22640D2820749FBE0074E9AD /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22640D2720749FBE0074E9AD /* RoutesViewController.swift */; };
 		22640D2D20749FBE0074E9AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22640D2B20749FBE0074E9AD /* Main.storyboard */; };
@@ -28,7 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		224EB10620AC0EDF00C6BBD7 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableCell.swift; path = GradeConverter/TableCell.swift; sourceTree = "<group>"; };
+		224EB10620AC0EDF00C6BBD7 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		22640D2220749FBE0074E9AD /* GradeConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradeConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22640D2520749FBE0074E9AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22640D2720749FBE0074E9AD /* RoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +65,6 @@
 		22640D1920749FBE0074E9AD = {
 			isa = PBXGroup;
 			children = (
-				224EB10620AC0EDF00C6BBD7 /* TableCell.swift */,
 				22640D2420749FBE0074E9AD /* GradeConverter */,
 				22640D3B20749FBE0074E9AD /* GradeConverterTests */,
 				22640D2320749FBE0074E9AD /* Products */,
@@ -82,6 +83,7 @@
 		22640D2420749FBE0074E9AD /* GradeConverter */ = {
 			isa = PBXGroup;
 			children = (
+				224EB10620AC0EDF00C6BBD7 /* TableCell.swift */,
 				22640D2520749FBE0074E9AD /* AppDelegate.swift */,
 				22640D2720749FBE0074E9AD /* RoutesViewController.swift */,
 				22640D2B20749FBE0074E9AD /* Main.storyboard */,
@@ -89,6 +91,7 @@
 				22640D3020749FBE0074E9AD /* LaunchScreen.storyboard */,
 				22640D3320749FBE0074E9AD /* Info.plist */,
 				22F2788A209A8D830004B761 /* GradeCell.swift */,
+				224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */,
 			);
 			path = GradeConverter;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224EB10D20AC5DD800C6BBD7 /* HeaderCell.swift in Sources */,
 				22F2788B209A8D830004B761 /* GradeCell.swift in Sources */,
 				22640D2620749FBE0074E9AD /* AppDelegate.swift in Sources */,
 				224EB10720AC0EDF00C6BBD7 /* TableCell.swift in Sources */,

@@ -85,24 +85,73 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return schemes.count
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        switch section {
+        case 0:
+            return 5
+        case 1:
+            return 3
+        default:
+            return 8
+        }
+    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
-        if tableView == schemeList{
-            cell.label.text = schemes[indexPath.row]
-        }
-        else if tableView == gradesList {
-            if let i = selectedGradesList.indexPathsForSelectedItems?.first{
-                cell.label.text = grades[indexPath.row][(i.row)]
+        if tableView == schemeList {//&& indexPath.row != selectedScheme
+            if indexPath.section == 0{
+                cell.label.text = schemes[indexPath.row]
             }
             else{
-                cell.label.text = ""
+                cell.label.text = schemes[indexPath.row + 5]
             }
         }
+        else if tableView == gradesList {
+            if indexPath.section == 0{
+                if let i = selectedGradesList.indexPathsForSelectedItems?.first{
+                    cell.label.text = grades[indexPath.row][(i.row)]
+                }
+                else{
+                    cell.label.text = ""
+                }
+            }
+             else{
+                if let i = selectedGradesList.indexPathsForSelectedItems?.first{
+                    cell.label.text = grades[indexPath.row+5][(i.row)]
+                }
+                else{
+                    cell.label.text = ""
+                }
+            }
+            
+        }
         return cell
+    }
+    
+    //- HEADER
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let  headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
+        headerCell.backgroundColor = UIColor(displayP3Red: 0.9254902, green: 0.9254902, blue: 0.9254902, alpha: 1.0)
+        
+        headerCell.headerLabel.text = ""
+        if tableView == schemeList{
+            switch (section) {
+            case 0:
+                headerCell.headerLabel.text = "Routes"
+            case 1:
+                headerCell.headerLabel.text = "Bouldering"
+            default:
+                headerCell.headerLabel.text = "Other"
+            }
+        }
+        return headerCell
     }
 }
 
