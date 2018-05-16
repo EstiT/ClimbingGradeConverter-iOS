@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoutesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class RoutesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource {
     
     var schemes: [String] = ["French", "UK",  "Australia", "UIAA", "North America"]
     
@@ -20,19 +20,31 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         ["5.2-5.3", "5.4-5.5", "5.6", "5.7", "5.8", "5.9", "5.10a", "5.10b", "5.10c", "5.10d", "5.11a", "5.11b", "5.11c/d", "5.12a", "5.12b", "5.12c", "5.12d", "5.13a", "5.13b", "5.13c", "5.13d", "5.14a", "5.14b", "5.14c", "5.14d-5.15"]]
     
 
-    @IBOutlet weak var gradesList: UICollectionView!
+    @IBOutlet weak var selectedGradesList: UICollectionView!
+    
+    @IBOutlet weak var schemeList: UITableView!
+    @IBOutlet weak var gradesList: UITableView!
+    
     @IBOutlet weak var schemeLabel: UILabel!
     var selectedScheme = 0
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        gradesList.allowsSelection = true;
+        selectedGradesList.allowsSelection = true;
+        selectedGradesList.dataSource = self
+        selectedGradesList.delegate = self
+        selectedGradesList.reloadData()
+
+        schemeLabel.text = schemes[selectedScheme]
+        
+        schemeList.dataSource = self
+        schemeList.delegate = self
+        schemeList.reloadData()
+        
         gradesList.dataSource = self
         gradesList.delegate = self
         gradesList.reloadData()
-
-        schemeLabel.text = schemes[selectedScheme]
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +70,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GradeCell", for: indexPath) as! GradeCell
         cell.gradeNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
 //        setSelectedGrade(grade)
+        gradesList.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath){
@@ -69,8 +82,28 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
     }
 
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return schemes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
+        if tableView == schemeList{
+            cell.label.text = schemes[indexPath.row]
+        }
+        else if tableView == gradesList {
+            if let i = selectedGradesList.indexPathsForSelectedItems?.first{
+                cell.label.text = grades[indexPath.row][(i.row)]
+            }
+            else{
+                cell.label.text = ""
+            }
+        }
+        return cell
+    }
 }
+
+
 
 extension String
 {
