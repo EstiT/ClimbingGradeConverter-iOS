@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="vdt-XZ-IGu">
-                                <rect key="frame" x="325" y="36" width="34" height="34"/>
+                                <rect key="frame" x="331" y="36" width="28" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="34" id="VZb-gf-9Ac"/>
-                                    <constraint firstAttribute="height" constant="34" id="h0u-cQ-vVe"/>
+                                    <constraint firstAttribute="width" constant="28" id="VZb-gf-9Ac"/>
+                                    <constraint firstAttribute="height" constant="28" id="h0u-cQ-vVe"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Routes" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
@@ -231,9 +231,12 @@
                                     <navigationItem title="Settings" id="GBj-6n-Xa1"/>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="close2" translatesAutoresizingMaskIntoConstraints="NO" id="SUo-6Y-cOz">
-                                <rect key="frame" x="335" y="35" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close2" translatesAutoresizingMaskIntoConstraints="NO" id="SUo-6Y-cOz">
+                                <rect key="frame" x="335" y="35" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="5Qe-bD-m7f"/>
+                                    <constraint firstAttribute="width" constant="26" id="n4K-s5-NuR"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Preferred Grading Scheme:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYm-5D-Hsk">
                                 <rect key="frame" x="32" y="119" width="261" height="21"/>
@@ -245,7 +248,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sig-pG-2CP">
-                                <rect key="frame" x="0.0" y="148" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="tuc-Zu-PtB"/>
                                 </constraints>
@@ -256,10 +259,12 @@
                             <constraint firstItem="Sig-pG-2CP" firstAttribute="trailing" secondItem="qbN-Ug-h37" secondAttribute="trailing" id="FqQ-2I-ck3"/>
                             <constraint firstItem="QfF-wi-KXR" firstAttribute="trailing" secondItem="qbN-Ug-h37" secondAttribute="trailing" id="IgS-j9-dEq"/>
                             <constraint firstItem="oYm-5D-Hsk" firstAttribute="top" secondItem="QfF-wi-KXR" secondAttribute="bottom" constant="50" id="LjO-DG-4DL"/>
-                            <constraint firstItem="Sig-pG-2CP" firstAttribute="top" secondItem="oYm-5D-Hsk" secondAttribute="bottom" constant="8" id="bf0-5a-z53"/>
+                            <constraint firstItem="Sig-pG-2CP" firstAttribute="top" secondItem="oYm-5D-Hsk" secondAttribute="bottom" constant="4" id="bf0-5a-z53"/>
                             <constraint firstItem="QfF-wi-KXR" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" id="buN-y1-Csl"/>
+                            <constraint firstItem="SUo-6Y-cOz" firstAttribute="top" secondItem="qbN-Ug-h37" secondAttribute="top" constant="15" id="h10-Xs-Keh"/>
                             <constraint firstItem="oYm-5D-Hsk" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" constant="32" id="l3a-0Z-ux2"/>
                             <constraint firstItem="Sig-pG-2CP" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" id="rBz-yf-0ZI"/>
+                            <constraint firstItem="qbN-Ug-h37" firstAttribute="trailing" secondItem="SUo-6Y-cOz" secondAttribute="trailing" constant="14" id="sUU-74-LnC"/>
                             <constraint firstItem="QfF-wi-KXR" firstAttribute="top" secondItem="qbN-Ug-h37" secondAttribute="top" constant="5" id="z6c-aE-Bp9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qbN-Ug-h37"/>

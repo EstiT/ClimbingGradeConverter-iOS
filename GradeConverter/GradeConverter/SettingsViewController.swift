@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var schemePickerView: UIPickerView!
     
     var schemes: [String] = ["French", "UK",  "Australia", "UIAA", "North America", "Hueco", "UK", "Font"]
+    var selectedScheme: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,10 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         schemePickerView.dataSource = self
         schemePickerView.delegate = self
+        
+        if selectedScheme != nil{
+            schemePickerView.selectRow(selectedScheme, inComponent:0, animated:false)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,9 +37,16 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if selectedScheme != nil{
+            schemePickerView.selectRow(selectedScheme, inComponent:0, animated:false)
+        }
+    }
 
     @objc func closeTapped(){
-        navigationController?.popViewController(animated: true)
+        if let presenter = presentingViewController as? RoutesViewController {
+            presenter.selectedScheme = self.selectedScheme
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -51,6 +63,10 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return schemes[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedScheme = row
     }
 
 }

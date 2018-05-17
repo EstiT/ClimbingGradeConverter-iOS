@@ -14,7 +14,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     var grades: [[String]] = [
         ["1-2", "2-3", "4", "4+", "5a", "5b", "6a", "6a+", "6b", "6b+", "6c", "6c+", "7a", "7a+", "7b", "7b+", "7c", "7c+", "8a", "8a+", "8b", "8b+", "8c", "8c+", "9a"],
-        ["HVD", "MS", "S", "VS", "HVS", " ", "E1 5b", "E2 5c", " ", "E3 5c", " ", "E4 6a", " ", "E5 6b", " ", "E6 6b", " ", " ", "E7 6c", " ", "E8 7a", " ", "E9 7b", " ", "E10 7c"],
+        ["HVD", "MS", "S", "VS", "HVS", "", "E1 5b", "E2 5c", "", "E3 5c", "", "E4 6a", "", "E5 6b", "", "E6 6b", "", "", "E7 6c", "", "E8 7a", "", "E9 7b", "", "E10 7c"],
         ["8-9", "10-12", "13-", "13+", "14", "15", "19", "19/20", "20", "21", "21/22", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35"],
         ["I-II", "III", "IV", "V-", "V", "V+", "VI+", "VI+/VII-", "VII", "VII+", "VII+/VIII-", "VIII-", "VIII", "VIII/VIII+", "VIII+", "IX-", "IX", "IX/IX+", "IX+", "X-", "X", "X/X+", "X+", "XI-", "XI"],
         ["5.2-5.3", "5.4-5.5", "5.6", "5.7", "5.8", "5.9", "5.10a", "5.10b", "5.10c", "5.10d", "5.11a", "5.11b", "5.11c/d", "5.12a", "5.12b", "5.12c", "5.12d", "5.13a", "5.13b", "5.13c", "5.13d", "5.14a", "5.14b", "5.14c", "5.14d-5.15"],
@@ -36,7 +36,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedGradesList.allowsSelection = true;
+        selectedGradesList.allowsSelection = true
         selectedGradesList.dataSource = self
         selectedGradesList.delegate = self
         selectedGradesList.reloadData()
@@ -55,6 +55,12 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         singleTap.numberOfTapsRequired = 1
         settingsImageView.addGestureRecognizer(singleTap)
         settingsImageView.isUserInteractionEnabled = true
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateSelectedScheme()
     }
 
     override func didReceiveMemoryWarning() {
@@ -166,6 +172,21 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @objc func settingsTapped(){
         performSegue(withIdentifier: "settingsSegue", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settingsSegue" {
+            if let settingsViewController = segue.destination as? SettingsViewController {
+                settingsViewController.selectedScheme = self.selectedScheme
+            }
+        }
+    }
+    
+    func updateSelectedScheme(){
+        schemeLabel.text = schemes[selectedScheme]
+        gradesList.reloadData()
+        selectedGradesList.reloadData()
+    }
+   
     
 }
 
