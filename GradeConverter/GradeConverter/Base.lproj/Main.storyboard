@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="vdt-XZ-IGu">
-                                <rect key="frame" x="319" y="36" width="40" height="40"/>
+                                <rect key="frame" x="325" y="36" width="34" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="VZb-gf-9Ac"/>
-                                    <constraint firstAttribute="height" constant="40" id="h0u-cQ-vVe"/>
+                                    <constraint firstAttribute="width" constant="34" id="VZb-gf-9Ac"/>
+                                    <constraint firstAttribute="height" constant="34" id="h0u-cQ-vVe"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Routes" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
@@ -210,14 +210,48 @@
                         <outlet property="schemeList" destination="no5-yQ-VnP" id="a0E-Vf-Zvf"/>
                         <outlet property="selectedGradesList" destination="ehI-VH-TpU" id="Und-cA-sUt"/>
                         <outlet property="settingsImageView" destination="vdt-XZ-IGu" id="fAz-6p-nLh"/>
+                        <segue destination="uO4-dp-kdg" kind="presentation" identifier="settingsSegue" id="4L0-vE-imh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="692" y="-322.48875562218893"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="bSz-n5-1V2">
+            <objects>
+                <viewController id="uO4-dp-kdg" userLabel="Settings" customClass="SettingsViewController" customModule="GradeConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iQX-aC-vc4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QfF-wi-KXR">
+                                <rect key="frame" x="0.0" y="25" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Settings" id="GBj-6n-Xa1"/>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="close2" translatesAutoresizingMaskIntoConstraints="NO" id="SUo-6Y-cOz">
+                                <rect key="frame" x="335" y="35" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qbN-Ug-h37"/>
+                    </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="closeImageView" destination="SUo-6Y-cOz" id="ANb-xV-t2Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eeq-u7-M48" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728.8" y="-321.58920539730138"/>
         </scene>
     </scenes>
     <resources>
+        <image name="close2" width="128" height="128"/>
         <image name="first" width="30" height="30"/>
         <image name="settings" width="173" height="173"/>
     </resources>

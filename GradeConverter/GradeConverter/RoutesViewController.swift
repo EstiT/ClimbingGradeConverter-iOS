@@ -164,7 +164,9 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     //- SETTINGS
     
     @objc func settingsTapped(){
+        performSegue(withIdentifier: "settingsSegue", sender: self)
     }
+    
 }
 
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		224EB10720AC0EDF00C6BBD7 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EB10620AC0EDF00C6BBD7 /* TableCell.swift */; };
 		224EB10D20AC5DD800C6BBD7 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */; };
+		224EB10F20ACFBA300C6BBD7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EB10E20ACFBA300C6BBD7 /* SettingsViewController.swift */; };
 		22640D2620749FBE0074E9AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22640D2520749FBE0074E9AD /* AppDelegate.swift */; };
 		22640D2820749FBE0074E9AD /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22640D2720749FBE0074E9AD /* RoutesViewController.swift */; };
 		22640D2D20749FBE0074E9AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22640D2B20749FBE0074E9AD /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		224EB10620AC0EDF00C6BBD7 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		224EB10E20ACFBA300C6BBD7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		22640D2220749FBE0074E9AD /* GradeConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradeConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22640D2520749FBE0074E9AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22640D2720749FBE0074E9AD /* RoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				22640D3320749FBE0074E9AD /* Info.plist */,
 				22F2788A209A8D830004B761 /* GradeCell.swift */,
 				224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */,
+				224EB10E20ACFBA300C6BBD7 /* SettingsViewController.swift */,
 			);
 			path = GradeConverter;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				22640D2620749FBE0074E9AD /* AppDelegate.swift in Sources */,
 				224EB10720AC0EDF00C6BBD7 /* TableCell.swift in Sources */,
 				22640D2820749FBE0074E9AD /* RoutesViewController.swift in Sources */,
+				224EB10F20ACFBA300C6BBD7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
