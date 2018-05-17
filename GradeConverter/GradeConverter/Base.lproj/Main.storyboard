@@ -225,9 +225,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QfF-wi-KXR">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfF-wi-KXR">
                                 <rect key="frame" x="0.0" y="25" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Settings" id="GBj-6n-Xa1"/>
                                 </items>
@@ -236,13 +235,39 @@
                                 <rect key="frame" x="335" y="35" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Preferred Grading Scheme:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYm-5D-Hsk">
+                                <rect key="frame" x="32" y="119" width="261" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="02v-vj-TbT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sig-pG-2CP">
+                                <rect key="frame" x="0.0" y="148" width="375" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="tuc-Zu-PtB"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sig-pG-2CP" firstAttribute="trailing" secondItem="qbN-Ug-h37" secondAttribute="trailing" id="FqQ-2I-ck3"/>
+                            <constraint firstItem="QfF-wi-KXR" firstAttribute="trailing" secondItem="qbN-Ug-h37" secondAttribute="trailing" id="IgS-j9-dEq"/>
+                            <constraint firstItem="oYm-5D-Hsk" firstAttribute="top" secondItem="QfF-wi-KXR" secondAttribute="bottom" constant="50" id="LjO-DG-4DL"/>
+                            <constraint firstItem="Sig-pG-2CP" firstAttribute="top" secondItem="oYm-5D-Hsk" secondAttribute="bottom" constant="8" id="bf0-5a-z53"/>
+                            <constraint firstItem="QfF-wi-KXR" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" id="buN-y1-Csl"/>
+                            <constraint firstItem="oYm-5D-Hsk" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" constant="32" id="l3a-0Z-ux2"/>
+                            <constraint firstItem="Sig-pG-2CP" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" id="rBz-yf-0ZI"/>
+                            <constraint firstItem="QfF-wi-KXR" firstAttribute="top" secondItem="qbN-Ug-h37" secondAttribute="top" constant="5" id="z6c-aE-Bp9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qbN-Ug-h37"/>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="closeImageView" destination="SUo-6Y-cOz" id="ANb-xV-t2Y"/>
+                        <outlet property="schemePickerView" destination="Sig-pG-2CP" id="GO9-8u-iNL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeq-u7-M48" userLabel="First Responder" sceneMemberID="firstResponder"/>
