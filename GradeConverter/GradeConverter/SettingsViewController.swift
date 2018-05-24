@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var closeImageView: UIImageView!
     @IBOutlet weak var schemePickerView: UIPickerView!
     
-    var schemes: [String] = ["French", "UK",  "Australia", "UIAA", "North America", "Hueco", "UK", "Font"]
+    var schemes: [String] = ["French", "UK",  "Australia", "UIAA", "North America", "Hueco", "UK-Bouldering", "Font"]
     var selectedScheme: Int!
 
     override func viewDidLoad() {
