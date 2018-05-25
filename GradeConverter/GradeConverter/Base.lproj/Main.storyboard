@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9pv-A4-QxB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9pv-A4-QxB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,22 +44,22 @@
                                     <constraint firstAttribute="width" constant="375" id="nnd-Vm-Xhq"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Fg-Ti-LBC">
-                                    <size key="itemSize" width="80" height="55"/>
+                                    <size key="itemSize" width="99" height="52.5"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GradeCell" id="8IE-DE-dSX" customClass="GradeCell" customModule="GradeConverter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-1.5" width="80" height="55"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="GradeCell" id="8IE-DE-dSX" customClass="GradeCell" customModule="GradeConverter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-0.5" width="99" height="52.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="99" height="52.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIp-cL-ORk">
-                                                    <rect key="frame" x="19" y="17" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="25.5" y="14.5" width="48" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -187,11 +187,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by Esti 😘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biV-Rx-5ne">
+                                <rect key="frame" x="16" y="628" width="359" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bpu-N1-xmH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="biV-Rx-5ne" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" constant="-18" id="0r5-eF-SSO"/>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="top" secondItem="ehI-VH-TpU" secondAttribute="bottom" constant="16" id="1Io-nK-5oF"/>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
+                            <constraint firstItem="biV-Rx-5ne" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="16" id="7KM-RO-9HW"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="9Bh-Ph-YbQ" secondAttribute="trailing" constant="16" id="9VH-As-TLH"/>
                             <constraint firstItem="vdt-XZ-IGu" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="16" id="WAA-Wl-14z"/>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="WXP-pb-0tS"/>
@@ -200,6 +211,7 @@
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="no5-yQ-VnP" secondAttribute="bottom" id="doa-hJ-Pla"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="42" id="gZ5-Lz-FUc"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="top" secondItem="no5-yQ-VnP" secondAttribute="top" id="jF6-Rv-Wmc"/>
+                            <constraint firstAttribute="trailing" secondItem="biV-Rx-5ne" secondAttribute="trailing" id="p7T-5E-WPG"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="9Bh-Ph-YbQ" secondAttribute="bottom" id="qYa-Lv-pDj"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="leading" secondItem="no5-yQ-VnP" secondAttribute="trailing" constant="2" id="rtF-Z8-Y1d"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="tCa-Ey-YNq"/>

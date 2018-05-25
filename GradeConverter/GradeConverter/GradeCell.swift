@@ -12,7 +12,7 @@ class GradeCell : UICollectionViewCell{
     
     override var isSelected: Bool{
         didSet{
-            gradeNameLabel.font = isSelected ? UIFont.boldSystemFont(ofSize: 21) : UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.thin)
+            gradeNameLabel.font = isSelected ? UIFont.boldSystemFont(ofSize: 23) : UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.regular)
 
         }
     }
