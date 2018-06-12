@@ -42,6 +42,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var settingsImageView: UIImageView!
     
     var selectedScheme = 0
+    var selectedGrade = 0
     
 
     override func viewDidLoad() {
@@ -50,7 +51,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         //restore preferences
         selectedScheme = UserDefaults.standard.integer(forKey: "selectedScheme")
         
-        
+        selectedGrade = UserDefaults.standard.integer(forKey: "selectedGrade")
         selectedGradesList.allowsSelection = true
         selectedGradesList.dataSource = self
         selectedGradesList.delegate = self
@@ -101,6 +102,8 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GradeCell", for: indexPath) as! GradeCell
         cell.gradeNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        selectedGrade = indexPath.row
+        UserDefaults.standard.set(selectedGrade, forKey: "selectedGrade")
         gradesList.reloadData()
     }
     
@@ -145,26 +148,17 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         else if tableView == gradesList {
             if indexPath.section == 0{
-                if let selectedGradeIndex = selectedGradesList.indexPathsForSelectedItems?.first{
-                    if let ind = grades[selectedScheme].index(of: gradesWOEmptys[selectedScheme][selectedGradeIndex.row]){
-                        cell.label.text = grades[indexPath.row][ind]
-                    }
-                    else{
-                        cell.label.text = ""
-                    }
+                if let ind = grades[selectedScheme].index(of: gradesWOEmptys[selectedScheme][selectedGrade]){
+                    cell.label.text = grades[indexPath.row][ind]
                 }
                 else{
                     cell.label.text = ""
                 }
             }
              else{
-                if let selectedGradeIndex = selectedGradesList.indexPathsForSelectedItems?.first{
-                    if let ind = grades[selectedScheme].index(of: gradesWOEmptys[selectedScheme][selectedGradeIndex.row]){
-                        cell.label.text = grades[indexPath.row+5][ind]
-                    }
-                    else{
-                        cell.label.text = ""
-                    }
+     
+                if let ind = grades[selectedScheme].index(of: gradesWOEmptys[selectedScheme][selectedGrade]){
+                    cell.label.text = grades[indexPath.row+5][ind]
                 }
                 else{
                     cell.label.text = ""
