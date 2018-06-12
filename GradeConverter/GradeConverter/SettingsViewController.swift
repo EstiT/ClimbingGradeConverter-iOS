@@ -67,6 +67,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedScheme = row
+        UserDefaults.standard.set(selectedScheme, forKey: "selectedScheme")
     }
 
 }

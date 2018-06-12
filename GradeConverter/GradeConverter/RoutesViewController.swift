@@ -46,6 +46,11 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //restore preferences
+        selectedScheme = UserDefaults.standard.integer(forKey: "selectedScheme")
+        
+        
         selectedGradesList.allowsSelection = true
         selectedGradesList.dataSource = self
         selectedGradesList.delegate = self
