@@ -187,7 +187,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by Esti 😘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biV-Rx-5ne">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by Esti 😘🧗🏻‍♀️🙈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biV-Rx-5ne">
                                 <rect key="frame" x="16" y="628" width="359" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bpu-N1-xmH"/>
@@ -218,7 +218,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="gradesList" destination="9Bh-Ph-YbQ" id="nDn-tO-fPh"/>
                         <outlet property="schemeLabel" destination="KQZ-1w-vlD" id="tBJ-Fx-4x3"/>
@@ -296,7 +295,6 @@
     </scenes>
     <resources>
         <image name="close2" width="128" height="128"/>
-        <image name="first" width="30" height="30"/>
         <image name="settings" width="173" height="173"/>
     </resources>
 </document>
