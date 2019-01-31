@@ -186,22 +186,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by Esti 😘🧗🏻‍♀️🙈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biV-Rx-5ne">
-                                <rect key="frame" x="16" y="628" width="359" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="bpu-N1-xmH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="biV-Rx-5ne" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" constant="-18" id="0r5-eF-SSO"/>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="top" secondItem="ehI-VH-TpU" secondAttribute="bottom" constant="8" id="1Io-nK-5oF"/>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="biV-Rx-5ne" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="16" id="7KM-RO-9HW"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="9Bh-Ph-YbQ" secondAttribute="trailing" constant="16" id="9VH-As-TLH"/>
                             <constraint firstItem="vdt-XZ-IGu" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="5" id="WAA-Wl-14z"/>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="WXP-pb-0tS"/>
@@ -210,7 +199,6 @@
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="no5-yQ-VnP" secondAttribute="bottom" id="doa-hJ-Pla"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="30" id="gZ5-Lz-FUc"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="top" secondItem="no5-yQ-VnP" secondAttribute="top" id="jF6-Rv-Wmc"/>
-                            <constraint firstAttribute="trailing" secondItem="biV-Rx-5ne" secondAttribute="trailing" id="p7T-5E-WPG"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="9Bh-Ph-YbQ" secondAttribute="bottom" id="qYa-Lv-pDj"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="leading" secondItem="no5-yQ-VnP" secondAttribute="trailing" constant="2" id="rtF-Z8-Y1d"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="tCa-Ey-YNq"/>
