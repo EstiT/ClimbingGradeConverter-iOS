@@ -220,7 +220,7 @@ extension String
     {
         let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height);
         
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         
         return boundingBox.width;
     }
