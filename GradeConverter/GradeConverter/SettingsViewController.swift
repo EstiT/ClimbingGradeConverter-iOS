@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var closeImageView: UIImageView!
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var schemePickerView: UIPickerView!
     
     var schemes: [String] = ["French", "UK",  "Australia", "UIAA", "North America", "Hueco", "UK-Bouldering", "Font"]
@@ -18,11 +18,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.closeTapped))
-        singleTap.numberOfTapsRequired = 1
-        closeImageView.addGestureRecognizer(singleTap)
-        closeImageView.isUserInteractionEnabled = true
         
         schemePickerView.dataSource = self
         schemePickerView.delegate = self
@@ -43,7 +38,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
 
-    @objc func closeTapped(){
+    @IBAction func closeSettings(_ sender: Any) {
         if let presenter = presentingViewController as? RoutesViewController {
             presenter.selectedScheme = self.selectedScheme
         }

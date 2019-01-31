@@ -39,7 +39,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var gradesList: UITableView!
     
     @IBOutlet weak var schemeLabel: UILabel!
-    @IBOutlet weak var settingsImageView: UIImageView!
+    @IBOutlet weak var settingsButton: UIButton!
     
     var selectedScheme = 0
     var selectedGrade = 0
@@ -69,11 +69,6 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         gradesList.reloadData()
         gradesList.tableFooterView = UIView(frame: .zero)
         
-        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RoutesViewController.settingsTapped))
-        singleTap.numberOfTapsRequired = 1
-        settingsImageView.addGestureRecognizer(singleTap)
-        settingsImageView.isUserInteractionEnabled = true
-    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -191,8 +186,8 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     //- SETTINGS
     
-    @objc func settingsTapped(){
-        performSegue(withIdentifier: "settingsSegue", sender: self)
+    @IBAction func settingsTapped(_ sender: Any) {
+              performSegue(withIdentifier: "settingsSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
