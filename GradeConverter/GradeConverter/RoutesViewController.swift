@@ -44,7 +44,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     var selectedScheme = 0
     var selectedGrade = 0
     
-    var firstOpen = true
+    var firstOpen: Bool!
     var arrow: UIImageView!
     var text1: UILabel!
     var text2: UILabel!
@@ -75,6 +75,12 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         gradesList.reloadData()
         gradesList.tableFooterView = UIView(frame: .zero)
         
+        if !isKeyPresentInUserDefaults(key: "firstOpen") {
+            firstOpen = true
+        }
+        else{
+            firstOpen = UserDefaults.standard.bool(forKey: "firstOpen")
+        }
         if firstOpen {
             haze = UIView(frame: self.view.frame)
             haze.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0.7)
@@ -148,8 +154,13 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
                 self.text2.removeFromSuperview()
                 self.arrow.removeFromSuperview()
                 self.haze.removeFromSuperview()
+                UserDefaults.standard.set(false, forKey: "firstOpen")
             })
         }
+    }
+    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
     }
     
     // COLLECTION VIEW
