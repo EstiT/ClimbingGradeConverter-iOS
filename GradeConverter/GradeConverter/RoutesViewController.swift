@@ -44,6 +44,12 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     var selectedScheme = 0
     var selectedGrade = 0
     
+    var firstOpen = true
+    var arrow: UIImageView!
+    var text1: UILabel!
+    var text2: UILabel!
+    var haze: UIView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +75,32 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         gradesList.reloadData()
         gradesList.tableFooterView = UIView(frame: .zero)
         
+        if firstOpen {
+            haze = UIView(frame: self.view.frame)
+            haze.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0.7)
+            self.view.addSubview(haze)
+            
+            arrow = UIImageView(image: UIImage(named:"arrow"))
+            arrow.frame = CGRect(x: settingsButton.frame.minX - 60, y: settingsButton.frame.minY + 5, width: 70, height: 100)
+            arrow.transform = arrow.transform.rotated(by: CGFloat(-Double.pi/4))
+            self.view.addSubview(arrow)
+            
+            text1 = UILabel()
+            text1.frame = CGRect(x: arrow.frame.midX - 270, y: arrow.frame.midY-10, width: 300, height: 100)
+            text1.text = "Set your preffered scheme here"
+            text1.textColor = UIColor(displayP3Red: 235/255, green: 0, blue: 72/255, alpha: 1.0)
+            text1.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir-Heavy", size: 26.0), size: 26.0)
+            text1.numberOfLines = 2
+            text1.textAlignment = .center
+            self.view.addSubview(text1)
+            
+            let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RoutesViewController.removeShowOnboarding))
+            singleTap.numberOfTapsRequired = 1
+            self.view.addGestureRecognizer(singleTap)
+            self.view.isUserInteractionEnabled = true
+
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,6 +112,29 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func removeShowOnboarding(){
+        if text1.isDescendant(of: self.view) { //change from first to second
+            arrow.transform = arrow.transform.rotated(by: CGFloat(Double.pi/4))
+            arrow.frame = CGRect(x: 50, y: 80, width: arrow.frame.width+10, height: arrow.frame.height)
+
+            
+            text1.removeFromSuperview()
+            
+            text2 = UILabel()
+            text2.frame = CGRect(x: arrow.frame.midX, y: arrow.frame.midY, width: 300, height: 80)
+            text2.text = "Scroll here for more grades"
+            text2.textColor = UIColor(displayP3Red: 235/255, green: 0, blue: 72/255, alpha: 1.0)
+            text2.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir-Heavy", size: 26.0), size: 26.0)
+            text2.numberOfLines = 2
+            text2.textAlignment = .center
+            self.view.addSubview(text2)
+        }
+        else if text2.isDescendant(of: self.view) {
+            text2.removeFromSuperview()
+            arrow.removeFromSuperview()
+            haze.removeFromSuperview()
+        }
+    }
     
     // COLLECTION VIEW
     
