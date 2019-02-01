@@ -114,25 +114,41 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     @objc func removeShowOnboarding(){
         if text1.isDescendant(of: self.view) { //change from first to second
-            arrow.transform = arrow.transform.rotated(by: CGFloat(Double.pi/4))
-            arrow.frame = CGRect(x: 50, y: 80, width: arrow.frame.width+10, height: arrow.frame.height)
-
-            
-            text1.removeFromSuperview()
-            
             text2 = UILabel()
-            text2.frame = CGRect(x: arrow.frame.midX, y: arrow.frame.midY, width: 300, height: 80)
+            text2.frame = CGRect(x: 60, y: 130, width: 300, height: 80)
             text2.text = "Scroll here for more grades"
             text2.textColor = UIColor(displayP3Red: 235/255, green: 0, blue: 72/255, alpha: 1.0)
             text2.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir-Heavy", size: 26.0), size: 26.0)
             text2.numberOfLines = 2
             text2.textAlignment = .center
+            text2.alpha = 0.0
             self.view.addSubview(text2)
+            
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
+                self.text1.alpha = 0.0
+                self.arrow.alpha = 0.0
+            }, completion: {
+                (value: Bool) in
+                self.text1.removeFromSuperview()
+                self.arrow.transform = self.arrow.transform.rotated(by: CGFloat(Double.pi/4))
+                self.arrow.frame = CGRect(x: 50, y: 75, width: self.arrow.frame.width+10, height: self.arrow.frame.height)
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
+                    self.text2.alpha = 1.0
+                    self.arrow.alpha = 1.0
+                })
+            })
         }
         else if text2.isDescendant(of: self.view) {
-            text2.removeFromSuperview()
-            arrow.removeFromSuperview()
-            haze.removeFromSuperview()
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
+                self.text2.alpha = 0.0
+                self.arrow.alpha = 0.0
+                self.haze.alpha = 0.0
+            }, completion: {
+                (value: Bool) in
+                self.text2.removeFromSuperview()
+                self.arrow.removeFromSuperview()
+                self.haze.removeFromSuperview()
+            })
         }
     }
     
