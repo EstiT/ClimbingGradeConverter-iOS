@@ -203,31 +203,58 @@
                                     <constraint firstAttribute="height" constant="45" id="mMb-65-xhn"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nad-fE-Vyl">
+                                <rect key="frame" x="44" y="80" width="287" height="71.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Set your preferred scheme here">
+                                        <attributes>
+                                            <color key="NSColor" red="0.92156862745098034" green="0.0" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="26" name="Avenir-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Ts4-ph-qTX">
+                                <rect key="frame" x="289" y="35" width="70" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="KzV-fd-N4D"/>
+                                    <constraint firstAttribute="height" constant="80" id="xPx-iA-w5i"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="top" secondItem="ehI-VH-TpU" secondAttribute="bottom" constant="8" id="1Io-nK-5oF"/>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="9Bh-Ph-YbQ" secondAttribute="trailing" constant="16" id="9VH-As-TLH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ts4-ph-qTX" secondAttribute="trailing" id="OFy-hm-Wwj"/>
+                            <constraint firstItem="Nad-fE-Vyl" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="60" id="TbB-Pz-XvX"/>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="WXP-pb-0tS"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" id="ZsV-4O-Uvn"/>
+                            <constraint firstItem="Nad-fE-Vyl" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="44" id="deB-qn-czt"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="no5-yQ-VnP" secondAttribute="bottom" id="doa-hJ-Pla"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="30" id="gZ5-Lz-FUc"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="ukJ-55-8bI" secondAttribute="trailing" id="hqI-Oq-84i"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="top" secondItem="no5-yQ-VnP" secondAttribute="top" id="jF6-Rv-Wmc"/>
+                            <constraint firstItem="Ts4-ph-qTX" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="15" id="jO1-t5-9rt"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="9Bh-Ph-YbQ" secondAttribute="bottom" id="qYa-Lv-pDj"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="leading" secondItem="no5-yQ-VnP" secondAttribute="trailing" constant="2" id="rtF-Z8-Y1d"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="tCa-Ey-YNq"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Nad-fE-Vyl" secondAttribute="trailing" constant="44" id="vS4-6Q-GgC"/>
                             <constraint firstItem="ukJ-55-8bI" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="3" id="y0B-s7-qGx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <connections>
+                        <outlet property="arrowView" destination="Ts4-ph-qTX" id="Lzb-YC-YRA"/>
                         <outlet property="gradesList" destination="9Bh-Ph-YbQ" id="nDn-tO-fPh"/>
                         <outlet property="schemeLabel" destination="KQZ-1w-vlD" id="tBJ-Fx-4x3"/>
                         <outlet property="schemeList" destination="no5-yQ-VnP" id="a0E-Vf-Zvf"/>
                         <outlet property="selectedGradesList" destination="ehI-VH-TpU" id="Und-cA-sUt"/>
                         <outlet property="settingsButton" destination="usc-N5-vdk" id="QAZ-C7-x24"/>
+                        <outlet property="text" destination="Nad-fE-Vyl" id="SIz-xY-Ku0"/>
                         <segue destination="uO4-dp-kdg" kind="presentation" identifier="settingsSegue" id="4L0-vE-imh"/>
                     </connections>
                 </viewController>
@@ -314,6 +341,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow" width="85" height="85"/>
         <image name="close2" width="128" height="128"/>
         <image name="settings" width="173" height="173"/>
     </resources>

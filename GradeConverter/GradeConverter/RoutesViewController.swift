@@ -46,9 +46,8 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     var firstOpen: Bool!
     var singleTap: UITapGestureRecognizer!
-    var arrow: UIImageView!
-    var text1: UILabel!
-    var text2: UILabel!
+    @IBOutlet var text: UILabel!
+    @IBOutlet var arrowView: UIImageView!
     var haze: UIView!
     
 
@@ -98,22 +97,15 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func startOnboarding(){
         haze = UIView(frame: self.view.frame)
-        haze.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0.7)
+        haze.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0.75)
         self.view.addSubview(haze)
+
+        arrowView.transform = arrowView.transform.rotated(by: CGFloat(-Double.pi/4))
         
-        arrow = UIImageView(image: UIImage(named:"arrow"))
-        arrow.frame = CGRect(x: 275, y: 35, width: 70, height: 100)
-        arrow.transform = arrow.transform.rotated(by: CGFloat(-Double.pi/4))
-        self.view.addSubview(arrow)
-        
-        text1 = UILabel()
-        text1.frame = CGRect(x: arrow.frame.midX - 270, y: arrow.frame.midY-15, width: 300, height: 100)
-        text1.text = "Set your preffered scheme here"
-        text1.textColor = UIColor(displayP3Red: 235/255, green: 0, blue: 72/255, alpha: 1.0)
-        text1.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir-Heavy", size: 26.0), size: 26.0)
-        text1.numberOfLines = 2
-        text1.textAlignment = .center
-        self.view.addSubview(text1)
+        text.isHidden = false
+        arrowView.isHidden = false
+        self.view.bringSubviewToFront(arrowView)
+        self.view.bringSubviewToFront(text)
         
         singleTap = UITapGestureRecognizer(target: self, action: #selector(RoutesViewController.removeShowOnboarding))
         singleTap.numberOfTapsRequired = 1
@@ -122,40 +114,45 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     @objc func removeShowOnboarding(){
-        if text1.isDescendant(of: self.view) { //change from first to second
-            text2 = UILabel()
-            text2.frame = CGRect(x: 60, y: 130, width: 300, height: 80)
-            text2.text = "Scroll here for more grades"
-            text2.textColor = UIColor(displayP3Red: 235/255, green: 0, blue: 72/255, alpha: 1.0)
-            text2.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir-Heavy", size: 26.0), size: 26.0)
-            text2.numberOfLines = 2
-            text2.textAlignment = .center
-            text2.alpha = 0.0
-            self.view.addSubview(text2)
-            
+        if !text.isHidden && text.text == "Set your preferred scheme here"{ //change from first to second
             UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
-                self.text1.alpha = 0.0
-                self.arrow.alpha = 0.0
+                self.text.alpha = 0.0
+                self.arrowView.alpha = 0.0
             }, completion: {
                 (value: Bool) in
-                self.text1.removeFromSuperview()
-                self.arrow.transform = self.arrow.transform.rotated(by: CGFloat(Double.pi/4))
-                self.arrow.frame = CGRect(x: 50, y: 75, width: self.arrow.frame.width+10, height: self.arrow.frame.height)
+                self.text.removeFromSuperview()
+                self.arrowView.removeFromSuperview()
+          
+                self.arrowView = UIImageView(image: UIImage(named:"arrow"))
+                self.arrowView.frame = CGRect(x: 45, y: self.schemeLabel.frame.minY+30, width: 80, height: 80) //y:80
+                self.arrowView.alpha = 0.0
+                self.view.addSubview(self.arrowView)
+                
+                self.text = UILabel()
+                self.text.frame = CGRect(x: 60, y: self.arrowView.frame.minY+40, width: 300, height: 80)
+                self.text.text = "Scroll here for more grades"
+                self.text.textColor = UIColor(displayP3Red: 235/255, green: 0, blue: 72/255, alpha: 1.0)
+                self.text.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir-Heavy", size: 26.0), size: 26.0)
+                self.text.numberOfLines = 2
+                self.text.textAlignment = .center
+                self.text.alpha = 0.0
+                self.view.addSubview(self.text)
+
                 UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
-                    self.text2.alpha = 1.0
-                    self.arrow.alpha = 1.0
+                    self.text.alpha = 1.0
+                    self.arrowView.alpha = 1.0
                 })
             })
         }
-        else if text2.isDescendant(of: self.view) {
+        else {
             UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
-                self.text2.alpha = 0.0
-                self.arrow.alpha = 0.0
+                self.text.alpha = 0.0
+                self.arrowView.alpha = 0.0
                 self.haze.alpha = 0.0
             }, completion: {
                 (value: Bool) in
-                self.text2.removeFromSuperview()
-                self.arrow.removeFromSuperview()
+                self.text.removeFromSuperview()
+                self.arrowView.removeFromSuperview()
                 self.haze.removeFromSuperview()
                 UserDefaults.standard.set(false, forKey: "firstOpen")
                 self.view.removeGestureRecognizer(self.singleTap)
