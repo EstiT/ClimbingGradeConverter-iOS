@@ -45,6 +45,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     var selectedGrade = 0
     
     var firstOpen: Bool!
+    var singleTap: UITapGestureRecognizer!
     var arrow: UIImageView!
     var text1: UILabel!
     var text2: UILabel!
@@ -64,7 +65,6 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         selectedGradesList.reloadData()
 
         schemeLabel.text = schemes[selectedScheme]
-        
         schemeList.dataSource = self
         schemeList.delegate = self
         schemeList.reloadData()
@@ -82,29 +82,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
             firstOpen = UserDefaults.standard.bool(forKey: "firstOpen")
         }
         if firstOpen {
-            haze = UIView(frame: self.view.frame)
-            haze.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0.7)
-            self.view.addSubview(haze)
-            
-            arrow = UIImageView(image: UIImage(named:"arrow"))
-            arrow.frame = CGRect(x: settingsButton.frame.minX - 60, y: settingsButton.frame.minY + 5, width: 70, height: 100)
-            arrow.transform = arrow.transform.rotated(by: CGFloat(-Double.pi/4))
-            self.view.addSubview(arrow)
-            
-            text1 = UILabel()
-            text1.frame = CGRect(x: arrow.frame.midX - 270, y: arrow.frame.midY-10, width: 300, height: 100)
-            text1.text = "Set your preffered scheme here"
-            text1.textColor = UIColor(displayP3Red: 235/255, green: 0, blue: 72/255, alpha: 1.0)
-            text1.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir-Heavy", size: 26.0), size: 26.0)
-            text1.numberOfLines = 2
-            text1.textAlignment = .center
-            self.view.addSubview(text1)
-            
-            let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RoutesViewController.removeShowOnboarding))
-            singleTap.numberOfTapsRequired = 1
-            self.view.addGestureRecognizer(singleTap)
-            self.view.isUserInteractionEnabled = true
-
+            startOnboarding()
         }
         
     }
@@ -116,6 +94,31 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func startOnboarding(){
+        haze = UIView(frame: self.view.frame)
+        haze.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0.7)
+        self.view.addSubview(haze)
+        
+        arrow = UIImageView(image: UIImage(named:"arrow"))
+        arrow.frame = CGRect(x: 275, y: 35, width: 70, height: 100)
+        arrow.transform = arrow.transform.rotated(by: CGFloat(-Double.pi/4))
+        self.view.addSubview(arrow)
+        
+        text1 = UILabel()
+        text1.frame = CGRect(x: arrow.frame.midX - 270, y: arrow.frame.midY-15, width: 300, height: 100)
+        text1.text = "Set your preffered scheme here"
+        text1.textColor = UIColor(displayP3Red: 235/255, green: 0, blue: 72/255, alpha: 1.0)
+        text1.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir-Heavy", size: 26.0), size: 26.0)
+        text1.numberOfLines = 2
+        text1.textAlignment = .center
+        self.view.addSubview(text1)
+        
+        singleTap = UITapGestureRecognizer(target: self, action: #selector(RoutesViewController.removeShowOnboarding))
+        singleTap.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(singleTap)
+        self.view.isUserInteractionEnabled = true
     }
     
     @objc func removeShowOnboarding(){
@@ -155,6 +158,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
                 self.arrow.removeFromSuperview()
                 self.haze.removeFromSuperview()
                 UserDefaults.standard.set(false, forKey: "firstOpen")
+                self.view.removeGestureRecognizer(self.singleTap)
             })
         }
     }
