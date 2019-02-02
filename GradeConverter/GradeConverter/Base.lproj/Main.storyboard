@@ -49,8 +49,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="99" height="52.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIp-cL-ORk">
-                                                    <rect key="frame" x="25.5" y="14.5" width="48" height="24"/>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIp-cL-ORk">
+                                                    <rect key="frame" x="22" y="14.5" width="55" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="4fK-k8-gTR"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -179,34 +182,43 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usc-N5-vdk">
-                                <rect key="frame" x="326" y="28" width="35" height="35"/>
-                                <accessibility key="accessibilityConfiguration" identifier="Settings button" label="Settings button"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukJ-55-8bI">
+                                <rect key="frame" x="325" y="23" width="50" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usc-N5-vdk">
+                                        <rect key="frame" x="7" y="5" width="35" height="35"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Settings button" label="Settings button"/>
+                                        <state key="normal" title="Button" image="settings"/>
+                                        <connections>
+                                            <action selector="settingsTapped:" destination="9pv-A4-QxB" eventType="touchDown" id="61s-yX-2rP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Sgx-fc-zlF"/>
+                                    <constraint firstAttribute="bottom" secondItem="usc-N5-vdk" secondAttribute="bottom" constant="5" id="4oB-lX-PNH"/>
+                                    <constraint firstAttribute="trailing" secondItem="usc-N5-vdk" secondAttribute="trailing" constant="8" id="DSQ-WS-SXZ"/>
+                                    <constraint firstItem="usc-N5-vdk" firstAttribute="leading" secondItem="ukJ-55-8bI" secondAttribute="leading" constant="7" id="TRw-O2-eAk"/>
+                                    <constraint firstAttribute="width" constant="50" id="VdQ-K2-HQ6"/>
+                                    <constraint firstItem="usc-N5-vdk" firstAttribute="top" secondItem="ukJ-55-8bI" secondAttribute="top" constant="5" id="Xv2-6Y-3xO"/>
+                                    <constraint firstAttribute="height" constant="45" id="mMb-65-xhn"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="settings"/>
-                                <connections>
-                                    <action selector="settingsTapped:" destination="9pv-A4-QxB" eventType="touchDown" id="61s-yX-2rP"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="top" secondItem="ehI-VH-TpU" secondAttribute="bottom" constant="8" id="1Io-nK-5oF"/>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="9Bh-Ph-YbQ" secondAttribute="trailing" constant="16" id="9VH-As-TLH"/>
-                            <constraint firstItem="usc-N5-vdk" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="326" id="Gt6-9I-nyq"/>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="WXP-pb-0tS"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="usc-N5-vdk" secondAttribute="trailing" constant="14" id="Zit-NJ-mhf"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" id="ZsV-4O-Uvn"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="no5-yQ-VnP" secondAttribute="bottom" id="doa-hJ-Pla"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="30" id="gZ5-Lz-FUc"/>
-                            <constraint firstItem="usc-N5-vdk" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="isK-Jh-gaK"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="ukJ-55-8bI" secondAttribute="trailing" id="hqI-Oq-84i"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="top" secondItem="no5-yQ-VnP" secondAttribute="top" id="jF6-Rv-Wmc"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="9Bh-Ph-YbQ" secondAttribute="bottom" id="qYa-Lv-pDj"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="leading" secondItem="no5-yQ-VnP" secondAttribute="trailing" constant="2" id="rtF-Z8-Y1d"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="tCa-Ey-YNq"/>
+                            <constraint firstItem="ukJ-55-8bI" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="3" id="y0B-s7-qGx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -249,32 +261,43 @@
                                     <constraint firstAttribute="height" constant="162" id="tuc-Zu-PtB"/>
                                 </constraints>
                             </pickerView>
-                            <button opaque="NO" contentMode="right" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUq-5A-f2m" userLabel="Close Button">
-                                <rect key="frame" x="330" y="30" width="34" height="34"/>
-                                <accessibility key="accessibilityConfiguration" identifier="Close Settings Button" label="Close Settings Button"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fz1-2n-LU3">
+                                <rect key="frame" x="325" y="30" width="40" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="right" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUq-5A-f2m" userLabel="Close Button">
+                                        <rect key="frame" x="6" y="0.0" width="34" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Close Settings Button" label="Close Settings Button"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="88Q-Xi-f5y"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="close2"/>
+                                        <connections>
+                                            <action selector="closeSettings:" destination="uO4-dp-kdg" eventType="touchDown" id="f7S-3m-R4B"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="88Q-Xi-f5y"/>
+                                    <constraint firstItem="PUq-5A-f2m" firstAttribute="leading" secondItem="Fz1-2n-LU3" secondAttribute="leading" constant="6" id="8ZN-DB-XSQ"/>
+                                    <constraint firstItem="PUq-5A-f2m" firstAttribute="top" secondItem="Fz1-2n-LU3" secondAttribute="top" id="F2o-Ou-R4A"/>
+                                    <constraint firstAttribute="height" constant="40" id="ObY-5c-4Uq"/>
+                                    <constraint firstAttribute="trailing" secondItem="PUq-5A-f2m" secondAttribute="trailing" id="j6o-Po-GXz"/>
+                                    <constraint firstAttribute="width" constant="40" id="z7a-N4-C0G"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="close2"/>
-                                <connections>
-                                    <action selector="closeSettings:" destination="uO4-dp-kdg" eventType="touchDown" id="f7S-3m-R4B"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qbN-Ug-h37" firstAttribute="trailing" secondItem="oYm-5D-Hsk" secondAttribute="trailing" constant="82" id="1dZ-SB-GRD"/>
-                            <constraint firstItem="qbN-Ug-h37" firstAttribute="trailing" secondItem="PUq-5A-f2m" secondAttribute="trailing" constant="11" id="BVP-JD-eMh"/>
-                            <constraint firstItem="PUq-5A-f2m" firstAttribute="top" secondItem="iQX-aC-vc4" secondAttribute="top" constant="30" id="EO6-h6-8qX"/>
+                            <constraint firstAttribute="trailing" secondItem="Fz1-2n-LU3" secondAttribute="trailing" constant="10" id="2JQ-mG-xEQ"/>
                             <constraint firstItem="Sig-pG-2CP" firstAttribute="trailing" secondItem="qbN-Ug-h37" secondAttribute="trailing" id="FqQ-2I-ck3"/>
                             <constraint firstItem="QfF-wi-KXR" firstAttribute="trailing" secondItem="qbN-Ug-h37" secondAttribute="trailing" id="IgS-j9-dEq"/>
                             <constraint firstItem="oYm-5D-Hsk" firstAttribute="top" secondItem="QfF-wi-KXR" secondAttribute="bottom" constant="50" id="LjO-DG-4DL"/>
                             <constraint firstItem="qbN-Ug-h37" firstAttribute="bottom" secondItem="Sig-pG-2CP" secondAttribute="bottom" constant="312" id="QFN-LY-cSk"/>
-                            <constraint firstItem="PUq-5A-f2m" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" constant="330" id="Ys8-dU-bi0"/>
                             <constraint firstItem="Sig-pG-2CP" firstAttribute="top" secondItem="oYm-5D-Hsk" secondAttribute="bottom" constant="4" id="bf0-5a-z53"/>
                             <constraint firstItem="QfF-wi-KXR" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" id="buN-y1-Csl"/>
                             <constraint firstItem="oYm-5D-Hsk" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" constant="32" id="l3a-0Z-ux2"/>
                             <constraint firstItem="Sig-pG-2CP" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" id="rBz-yf-0ZI"/>
+                            <constraint firstItem="Fz1-2n-LU3" firstAttribute="top" secondItem="qbN-Ug-h37" secondAttribute="top" constant="10" id="wBL-Ds-R47"/>
                             <constraint firstItem="QfF-wi-KXR" firstAttribute="top" secondItem="qbN-Ug-h37" secondAttribute="top" constant="5" id="z6c-aE-Bp9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qbN-Ug-h37"/>
