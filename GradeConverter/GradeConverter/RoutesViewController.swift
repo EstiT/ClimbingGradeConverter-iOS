@@ -167,7 +167,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         return UserDefaults.standard.object(forKey: key) != nil
     }
     
-    // COLLECTION VIEW
+    // MARK: COLLECTION VIEW
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return gradesWOEmptys[selectedScheme].count
@@ -194,7 +194,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     
-   // TABLE VIEW
+    // MARK: TABLE VIEW
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
