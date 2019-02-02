@@ -16,6 +16,9 @@
 		22640D2F20749FBE0074E9AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22640D2E20749FBE0074E9AD /* Assets.xcassets */; };
 		22640D3220749FBE0074E9AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22640D3020749FBE0074E9AD /* LaunchScreen.storyboard */; };
 		22640D3D20749FBE0074E9AD /* GradeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22640D3C20749FBE0074E9AD /* GradeConverterTests.swift */; };
+		22A2CA9922050FC500DA0C16 /* Splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A2CA9622050FC400DA0C16 /* Splash@2x.png */; };
+		22A2CA9A22050FC500DA0C16 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A2CA9722050FC400DA0C16 /* Splash.png */; };
+		22A2CA9B22050FC500DA0C16 /* Splash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A2CA9822050FC500DA0C16 /* Splash@3x.png */; };
 		22F2788B209A8D830004B761 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2788A209A8D830004B761 /* GradeCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		22640D3820749FBE0074E9AD /* GradeConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GradeConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22640D3C20749FBE0074E9AD /* GradeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeConverterTests.swift; sourceTree = "<group>"; };
 		22640D3E20749FBE0074E9AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22A2CA9622050FC400DA0C16 /* Splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Splash@2x.png"; path = "../Splash/Splash@2x.png"; sourceTree = "<group>"; };
+		22A2CA9722050FC400DA0C16 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = ../Splash/Splash.png; sourceTree = "<group>"; };
+		22A2CA9822050FC500DA0C16 /* Splash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Splash@3x.png"; path = "../Splash/Splash@3x.png"; sourceTree = "<group>"; };
 		22F2788A209A8D830004B761 /* GradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +73,9 @@
 		22640D1920749FBE0074E9AD = {
 			isa = PBXGroup;
 			children = (
+				22A2CA9722050FC400DA0C16 /* Splash.png */,
+				22A2CA9622050FC400DA0C16 /* Splash@2x.png */,
+				22A2CA9822050FC500DA0C16 /* Splash@3x.png */,
 				22640D2420749FBE0074E9AD /* GradeConverter */,
 				22640D3B20749FBE0074E9AD /* GradeConverterTests */,
 				22640D2320749FBE0074E9AD /* Products */,
@@ -193,7 +202,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A2CA9B22050FC500DA0C16 /* Splash@3x.png in Resources */,
 				22640D3220749FBE0074E9AD /* LaunchScreen.storyboard in Resources */,
+				22A2CA9922050FC500DA0C16 /* Splash@2x.png in Resources */,
+				22A2CA9A22050FC500DA0C16 /* Splash.png in Resources */,
 				22640D2F20749FBE0074E9AD /* Assets.xcassets in Resources */,
 				22640D2D20749FBE0074E9AD /* Main.storyboard in Resources */,
 			);
