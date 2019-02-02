@@ -41,6 +41,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func closeSettings(_ sender: Any) {
         if let presenter = presentingViewController as? RoutesViewController {
             presenter.selectedScheme = self.selectedScheme
+            presenter.selectedGrade = 0
         }
         dismiss(animated: true, completion: nil)
     }
