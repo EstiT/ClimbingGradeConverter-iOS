@@ -49,13 +49,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="99" height="52.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIp-cL-ORk">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIp-cL-ORk">
                                                     <rect key="frame" x="22" y="14.5" width="55" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="4fK-k8-gTR"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <font key="NSFont" size="20" name=".SFNSDisplay"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -229,9 +235,11 @@
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="top" secondItem="ehI-VH-TpU" secondAttribute="bottom" constant="8" id="1Io-nK-5oF"/>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="9Bh-Ph-YbQ" secondAttribute="trailing" constant="16" id="9VH-As-TLH"/>
+                            <constraint firstItem="ehI-VH-TpU" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="MIk-5T-g4H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ts4-ph-qTX" secondAttribute="trailing" id="OFy-hm-Wwj"/>
                             <constraint firstItem="Nad-fE-Vyl" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="60" id="TbB-Pz-XvX"/>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="WXP-pb-0tS"/>
+                            <constraint firstItem="ehI-VH-TpU" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="YkN-BC-jcw"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" id="ZsV-4O-Uvn"/>
                             <constraint firstItem="Nad-fE-Vyl" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="44" id="deB-qn-czt"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="no5-yQ-VnP" secondAttribute="bottom" id="doa-hJ-Pla"/>
@@ -241,7 +249,6 @@
                             <constraint firstItem="Ts4-ph-qTX" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="15" id="jO1-t5-9rt"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="9Bh-Ph-YbQ" secondAttribute="bottom" id="qYa-Lv-pDj"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="leading" secondItem="no5-yQ-VnP" secondAttribute="trailing" constant="2" id="rtF-Z8-Y1d"/>
-                            <constraint firstItem="ehI-VH-TpU" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="tCa-Ey-YNq"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Nad-fE-Vyl" secondAttribute="trailing" constant="44" id="vS4-6Q-GgC"/>
                             <constraint firstItem="ukJ-55-8bI" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="3" id="y0B-s7-qGx"/>
                         </constraints>
@@ -249,11 +256,16 @@
                     </view>
                     <connections>
                         <outlet property="arrowView" destination="Ts4-ph-qTX" id="Lzb-YC-YRA"/>
+                        <outlet property="gradeTrailingConstraint" destination="9VH-As-TLH" id="iNj-j4-gYz"/>
                         <outlet property="gradesList" destination="9Bh-Ph-YbQ" id="nDn-tO-fPh"/>
+                        <outlet property="labelToSlideConstraint" destination="ZsV-4O-Uvn" id="1Aq-6g-w5P"/>
                         <outlet property="schemeLabel" destination="KQZ-1w-vlD" id="tBJ-Fx-4x3"/>
+                        <outlet property="schemeLeadingConstraint" destination="WXP-pb-0tS" id="MTF-9q-pTY"/>
                         <outlet property="schemeList" destination="no5-yQ-VnP" id="a0E-Vf-Zvf"/>
+                        <outlet property="schemeWidthConstraint" destination="6gb-6U-c0p" id="ceV-OI-lvq"/>
                         <outlet property="selectedGradesList" destination="ehI-VH-TpU" id="Und-cA-sUt"/>
                         <outlet property="settingsButton" destination="usc-N5-vdk" id="QAZ-C7-x24"/>
+                        <outlet property="slideToTableConstraint1" destination="1Io-nK-5oF" id="NQa-Jo-hsC"/>
                         <outlet property="text" destination="Nad-fE-Vyl" id="SIz-xY-Ku0"/>
                         <segue destination="uO4-dp-kdg" kind="presentation" identifier="settingsSegue" id="4L0-vE-imh"/>
                     </connections>

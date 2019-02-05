@@ -50,7 +50,13 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet var arrowView: UIImageView!
     var haze: UIView!
     
-
+    @IBOutlet weak var schemeWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var schemeLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var gradeTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var slideToTableConstraint1: NSLayoutConstraint!
+    @IBOutlet weak var labelToSlideConstraint: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,7 +89,9 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         if firstOpen {
             startOnboarding()
         }
-        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            iPadLayout()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -162,6 +170,16 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
+    }
+    
+    // Adjust for iPad
+    func iPadLayout(){
+        schemeWidthConstraint.constant = self.view.frame.width/2
+        schemeLeadingConstraint.constant = schemeLeadingConstraint.constant + 10
+        gradeTrailingConstraint.constant = gradeTrailingConstraint.constant + 10
+        slideToTableConstraint1.constant = slideToTableConstraint1.constant + 10
+        labelToSlideConstraint.constant = labelToSlideConstraint.constant + 10
+        schemeLabel.font = schemeLabel.font.withSize(40)
     }
     
     // MARK: COLLECTION VIEW
