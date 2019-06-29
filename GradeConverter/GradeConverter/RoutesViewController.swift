@@ -34,6 +34,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
 
     @IBOutlet weak var selectedGradesList: UICollectionView!
+    var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
     @IBOutlet weak var schemeList: UITableView!
     @IBOutlet weak var gradesList: UITableView!
@@ -48,6 +49,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     var singleTap: UITapGestureRecognizer!
     @IBOutlet var text: UILabel!
     @IBOutlet var arrowView: UIImageView!
+    @IBOutlet var triangleView: UIView!
     var haze: UIView!
     
     @IBOutlet weak var schemeWidthConstraint: NSLayoutConstraint!
@@ -62,9 +64,8 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         //restore preferences
         selectedScheme = UserDefaults.standard.integer(forKey: "selectedScheme")
-        
         selectedGrade = UserDefaults.standard.integer(forKey: "selectedGrade")
-        selectedGradesList.allowsSelection = true
+        selectedGradesList.allowsSelection = false
         selectedGradesList.dataSource = self
         selectedGradesList.delegate = self
         selectedGradesList.reloadData()
@@ -79,6 +80,14 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         gradesList.delegate = self
         gradesList.reloadData()
         gradesList.tableFooterView = UIView(frame: .zero)
+        
+        selectedGradesList.scrollToItem(at: IndexPath(row: selectedGrade, section: 0), at: .centeredHorizontally, animated: false)
+        
+        collectionViewFlowLayout = selectedGradesList.collectionViewLayout as? UICollectionViewFlowLayout
+        selectedGradesList.contentInset.left = collectionViewFlowLayout.itemSize.width + collectionViewFlowLayout.minimumLineSpacing + 20
+        selectedGradesList.contentInset.right = collectionViewFlowLayout.itemSize.width + collectionViewFlowLayout.minimumLineSpacing + 20
+        
+        triangleView.layer.zPosition = 10
         
         if !isKeyPresentInUserDefaults(key: "firstOpen") {
             firstOpen = true
@@ -95,6 +104,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        selectedGrade = UserDefaults.standard.integer(forKey: "selectedGrade")
         updateSelectedScheme()
     }
 
@@ -195,17 +205,38 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GradeCell", for: indexPath) as! GradeCell
-        cell.gradeNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        selectedGrade = indexPath.row
-        UserDefaults.standard.set(selectedGrade, forKey: "selectedGrade")
+    func snapToCenter() {
+        let center = self.view.convert(selectedGradesList.center, to: selectedGradesList)
+        if let centerIndexPath = selectedGradesList.indexPathForItem(at: center){
+            selectedGradesList.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
+            selectedGrade = centerIndexPath.row
+            UserDefaults.standard.set(selectedGrade, forKey: "selectedGrade")
+        }
+        else{ //landed in the middle
+            let center2 = CGPoint(x: center.x + 5, y: center.y)
+            if let centerIndexPath = selectedGradesList.indexPathForItem(at: center2){
+                selectedGradesList.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
+                selectedGrade = centerIndexPath.row
+                UserDefaults.standard.set(selectedGrade, forKey: "selectedGrade")
+            }
+            else{
+                let center3 = CGPoint(x: center.x - 5, y: center.y)
+                if let centerIndexPath = selectedGradesList.indexPathForItem(at: center3){
+                    selectedGradesList.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
+                    selectedGrade = centerIndexPath.row
+                    UserDefaults.standard.set(selectedGrade, forKey: "selectedGrade")
+                }
+            }
+        }
         gradesList.reloadData()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath){
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GradeCell", for: indexPath) as! GradeCell
-        cell.gradeNameLabel.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.thin)
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        snapToCenter()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        snapToCenter()
     }
     
     
@@ -303,6 +334,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         schemeLabel.text = schemes[selectedScheme]
         gradesList.reloadData()
         selectedGradesList.reloadData()
+        selectedGradesList.scrollToItem(at: IndexPath(row: selectedGrade, section: 0), at: .centeredHorizontally, animated: false)
     }
    
     

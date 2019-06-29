@@ -26,6 +26,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let indexPath = IndexPath(row: selectedScheme, section: 0)
             tableView.selectRow(at: indexPath, animated:false, scrollPosition:UITableView.ScrollPosition(rawValue: 0)!)
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            tableView.cellForRow(at: indexPath)?.tintColor = UIColor(red: 215/255, green: 20/255, blue: 20/255, alpha: 1.0)
         }
     }
 
@@ -39,6 +40,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let indexPath = IndexPath(row: selectedScheme, section: 0)
             tableView.selectRow(at: indexPath, animated:false, scrollPosition:UITableView.ScrollPosition(rawValue: 0)!)
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            tableView.cellForRow(at: indexPath)?.tintColor = UIColor(red: 215/255, green: 20/255, blue: 20/255, alpha: 1.0)
         }
     }
 
@@ -79,6 +81,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         UserDefaults.standard.set(selectedScheme, forKey: "selectedScheme")
         tableView.selectRow(at: indexPath as IndexPath, animated:false, scrollPosition:UITableView.ScrollPosition(rawValue: 0)!)
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        tableView.cellForRow(at: indexPath)?.tintColor = UIColor(red: 215/255, green: 20/255, blue: 20/255, alpha: 1.0)
     }
 
 }
