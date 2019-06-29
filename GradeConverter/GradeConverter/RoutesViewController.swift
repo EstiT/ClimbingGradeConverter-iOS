@@ -50,6 +50,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet var text: UILabel!
     @IBOutlet var arrowView: UIImageView!
     @IBOutlet var triangleView: UIView!
+    @IBOutlet var bgView: UIView!
     var haze: UIView!
     
     @IBOutlet weak var schemeWidthConstraint: NSLayoutConstraint!
@@ -88,6 +89,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         selectedGradesList.contentInset.right = collectionViewFlowLayout.itemSize.width + collectionViewFlowLayout.minimumLineSpacing + 20
         
         triangleView.layer.zPosition = 10
+        bgView.layer.zPosition = -1
         
         if !isKeyPresentInUserDefaults(key: "firstOpen") {
             firstOpen = true
