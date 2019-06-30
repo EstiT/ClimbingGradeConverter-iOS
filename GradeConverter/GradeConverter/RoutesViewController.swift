@@ -48,7 +48,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     var firstOpen: Bool!
     var singleTap: UITapGestureRecognizer!
     @IBOutlet var text: UILabel!
-    @IBOutlet var arrowView: UIImageView!
+    @IBOutlet var arrowView: UIView!
     @IBOutlet var triangleView: UIView!
     var haze: UIView!
     
@@ -75,13 +75,25 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         schemeList.delegate = self
         schemeList.reloadData()
         schemeList.tableFooterView = UIView(frame: .zero)
+        schemeList.backgroundColor = .clear
+        schemeList.separatorColor = .black
         
         gradesList.dataSource = self
         gradesList.delegate = self
         gradesList.reloadData()
         gradesList.tableFooterView = UIView(frame: .zero)
-        
-        selectedGradesList.scrollToItem(at: IndexPath(row: selectedGrade, section: 0), at: .centeredHorizontally, animated: false)
+        gradesList.backgroundColor = .clear
+        gradesList.separatorColor = .black
+
+        //Scroll to closest selected grade
+        var index = IndexPath()
+        if selectedGrade > gradesWOEmptys[selectedScheme].count - 1 {
+            index = IndexPath(row: gradesWOEmptys[selectedScheme].count - 1, section: 0)
+        }
+        else{
+            index = IndexPath(row: selectedGrade, section: 0)
+        }
+        selectedGradesList.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
         
         collectionViewFlowLayout = selectedGradesList.collectionViewLayout as? UICollectionViewFlowLayout
         selectedGradesList.contentInset.left = collectionViewFlowLayout.itemSize.width + collectionViewFlowLayout.minimumLineSpacing + 20
@@ -145,15 +157,16 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
                 self.text.removeFromSuperview()
                 self.arrowView.removeFromSuperview()
           
-                self.arrowView = UIImageView(image: UIImage(named:"arrow"))
-                self.arrowView.frame = CGRect(x: 45, y: self.schemeLabel.frame.minY+30, width: 80, height: 80) //y:80
+                self.arrowView = ArrowView()
+                self.arrowView.frame = CGRect(x: 45, y: self.schemeLabel.frame.minY+30, width: 73, height: 64) //y:80
                 self.arrowView.alpha = 0.0
                 self.view.addSubview(self.arrowView)
+                self.arrowView.backgroundColor = .clear
                 
                 self.text = UILabel()
                 self.text.frame = CGRect(x: 60, y: self.arrowView.frame.minY+40, width: 300, height: 80)
-                self.text.text = "Scroll here for more grades"
-                self.text.textColor = UIColor(displayP3Red: 235/255, green: 0, blue: 72/255, alpha: 1.0)
+                self.text.text = "Scroll here to select a grade"
+                self.text.textColor = UIColor(displayP3Red: 102/255, green: 11/255, blue: 19/255, alpha: 1.0)
                 self.text.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir-Heavy", size: 26.0), size: 26.0)
                 self.text.numberOfLines = 2
                 self.text.textAlignment = .center
@@ -267,6 +280,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
+        cell.backgroundColor = .clear
         if tableView == schemeList {//&& indexPath.row != selectedScheme
             if indexPath.section == 0{
                 cell.label.text = schemes[indexPath.row]
@@ -282,6 +296,10 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         else if tableView == gradesList {
             if indexPath.section == 0{
+                //ensure not out of bounds
+                if selectedGrade > gradesWOEmptys[selectedScheme].count - 1 {
+                     selectedGrade = gradesWOEmptys[selectedScheme].count - 1
+                }
                 if let ind = grades[selectedScheme].index(of: gradesWOEmptys[selectedScheme][selectedGrade]){
                     cell.label.text = grades[indexPath.row][ind]
                 }
@@ -307,7 +325,8 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
-        headerCell.backgroundColor = UIColor(displayP3Red: 0.9254902, green: 0.9254902, blue: 0.9254902, alpha: 1.0)
+        headerCell.backgroundColor = UIColor(displayP3Red: 102/255, green: 11/255, blue: 19/255, alpha: 0.7)
+        headerCell.headerLabel.textColor = .white
         
         headerCell.headerLabel.text = ""
         if tableView == schemeList{
@@ -341,7 +360,16 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         schemeLabel.text = schemes[selectedScheme]
         gradesList.reloadData()
         selectedGradesList.reloadData()
-        selectedGradesList.scrollToItem(at: IndexPath(row: selectedGrade, section: 0), at: .centeredHorizontally, animated: false)
+        
+        var index = IndexPath()
+        if selectedGrade > gradesWOEmptys[selectedScheme].count - 1 {
+            index = IndexPath(row: gradesWOEmptys[selectedScheme].count - 1, section: 0)
+        }
+        else{
+            index = IndexPath(row: selectedGrade, section: 0)
+        }
+        selectedGradesList.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+        
     }
    
     

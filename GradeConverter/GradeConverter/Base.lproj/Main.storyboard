@@ -18,9 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NiA-n1-hXP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.83119633842075979" blue="0.78599316853578338" alpha="0.62601669520547942" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Routes" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
                                 <rect key="frame" x="142.5" y="45" width="90" height="40"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="dHy-D1-GlU"/>
                                 </constraints>
@@ -38,7 +42,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ehI-VH-TpU">
                                 <rect key="frame" x="0.0" y="97" width="375" height="52"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.4288214977437721" green="0.43977901710587303" blue="0.44848508883248728" alpha="0.32585081335616439" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="42R-LY-Z7R"/>
                                     <constraint firstAttribute="width" constant="375" id="nnd-Vm-Xhq"/>
@@ -122,6 +126,7 @@
                                                 <constraint firstItem="eOY-YC-0dO" firstAttribute="leading" secondItem="i7n-jA-why" secondAttribute="leading" constant="16" id="dnn-w1-mI5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="label" destination="eOY-YC-0dO" id="LFH-HF-k53"/>
                                         </connections>
@@ -145,6 +150,7 @@
                                                 <constraint firstItem="889-h9-zkx" firstAttribute="centerX" secondItem="Myl-Y6-ww6" secondAttribute="centerX" id="zEi-yN-xSM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="headerLabel" destination="889-h9-zkx" id="TPK-Mg-wTb"/>
                                         </connections>
@@ -175,6 +181,7 @@
                                                 <constraint firstItem="oWk-HI-LeA" firstAttribute="centerY" secondItem="76X-2u-3hN" secondAttribute="centerY" id="ya7-f4-BUS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="label" destination="oWk-HI-LeA" id="KDu-sB-h5j"/>
                                         </connections>
@@ -230,7 +237,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Set your preferred scheme here">
                                         <attributes>
-                                            <color key="NSColor" red="0.92156862745098034" green="0.0" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="NSColor" red="0.44344860406091369" green="0.05021889978104313" blue="0.087645147293070533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="26" name="Avenir-Heavy"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -238,13 +245,11 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Ts4-ph-qTX">
-                                <rect key="frame" x="289" y="35" width="70" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="KzV-fd-N4D"/>
-                                    <constraint firstAttribute="height" constant="80" id="xPx-iA-w5i"/>
-                                </constraints>
-                            </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTS-A1-r83" customClass="ArrowView" customModule="GradeConverter" customModuleProvider="target">
+                                <rect key="frame" x="289" y="45" width="73" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -253,7 +258,6 @@
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="9Bh-Ph-YbQ" secondAttribute="trailing" constant="16" id="9VH-As-TLH"/>
                             <constraint firstItem="Z0I-to-Zb2" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="KnD-Fq-ct5"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="MIk-5T-g4H"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ts4-ph-qTX" secondAttribute="trailing" id="OFy-hm-Wwj"/>
                             <constraint firstItem="Nad-fE-Vyl" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="60" id="TbB-Pz-XvX"/>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="WXP-pb-0tS"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="YkN-BC-jcw"/>
@@ -264,7 +268,6 @@
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="25" id="gZ5-Lz-FUc"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="ukJ-55-8bI" secondAttribute="trailing" id="hqI-Oq-84i"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="top" secondItem="no5-yQ-VnP" secondAttribute="top" id="jF6-Rv-Wmc"/>
-                            <constraint firstItem="Ts4-ph-qTX" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="15" id="jO1-t5-9rt"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="9Bh-Ph-YbQ" secondAttribute="bottom" id="qYa-Lv-pDj"/>
                             <constraint firstItem="9Bh-Ph-YbQ" firstAttribute="leading" secondItem="no5-yQ-VnP" secondAttribute="trailing" constant="2" id="rtF-Z8-Y1d"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Nad-fE-Vyl" secondAttribute="trailing" constant="44" id="vS4-6Q-GgC"/>
@@ -273,7 +276,7 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <connections>
-                        <outlet property="arrowView" destination="Ts4-ph-qTX" id="Lzb-YC-YRA"/>
+                        <outlet property="arrowView" destination="ZTS-A1-r83" id="eB4-Dj-BmT"/>
                         <outlet property="gradeTrailingConstraint" destination="9VH-As-TLH" id="iNj-j4-gYz"/>
                         <outlet property="gradesList" destination="9Bh-Ph-YbQ" id="nDn-tO-fPh"/>
                         <outlet property="labelToSlideConstraint" destination="ZsV-4O-Uvn" id="1Aq-6g-w5P"/>
@@ -397,7 +400,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow" width="85" height="85"/>
         <image name="close2" width="128" height="128"/>
         <image name="settings" width="173" height="173"/>
     </resources>

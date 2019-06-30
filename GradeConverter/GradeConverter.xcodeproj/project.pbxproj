@@ -20,6 +20,7 @@
 		22A2CA9922050FC500DA0C16 /* Splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A2CA9622050FC400DA0C16 /* Splash@2x.png */; };
 		22A2CA9A22050FC500DA0C16 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A2CA9722050FC400DA0C16 /* Splash.png */; };
 		22A2CA9B22050FC500DA0C16 /* Splash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A2CA9822050FC500DA0C16 /* Splash@3x.png */; };
+		22EF56C622C940E70031973D /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF56C522C940E70031973D /* ArrowView.swift */; };
 		22F2788B209A8D830004B761 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2788A209A8D830004B761 /* GradeCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		22A2CA9622050FC400DA0C16 /* Splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Splash@2x.png"; path = "../Splash/Splash@2x.png"; sourceTree = "<group>"; };
 		22A2CA9722050FC400DA0C16 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = ../Splash/Splash.png; sourceTree = "<group>"; };
 		22A2CA9822050FC500DA0C16 /* Splash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Splash@3x.png"; path = "../Splash/Splash@3x.png"; sourceTree = "<group>"; };
+		22EF56C522C940E70031973D /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		22F2788A209A8D830004B761 /* GradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */,
 				224EB10E20ACFBA300C6BBD7 /* SettingsViewController.swift */,
 				225EB16822C6FCCA0009F9DC /* TriangleView.swift */,
+				22EF56C522C940E70031973D /* ArrowView.swift */,
 			);
 			path = GradeConverter;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225EB16922C6FCCA0009F9DC /* TriangleView.swift in Sources */,
+				22EF56C622C940E70031973D /* ArrowView.swift in Sources */,
 				224EB10D20AC5DD800C6BBD7 /* HeaderCell.swift in Sources */,
 				22F2788B209A8D830004B761 /* GradeCell.swift in Sources */,
 				22640D2620749FBE0074E9AD /* AppDelegate.swift in Sources */,
