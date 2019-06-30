@@ -302,7 +302,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
-        headerCell.backgroundColor = UIColor(displayP3Red: 0.9254902, green: 0.9254902, blue: 0.9254902, alpha: 1.0)
+        headerCell.backgroundColor = UIColor(displayP3Red: 0.9254902, green: 0.9254902, blue: 0.9254902, alpha: 0.7)
         
         headerCell.headerLabel.text = ""
         if tableView == schemeList{
