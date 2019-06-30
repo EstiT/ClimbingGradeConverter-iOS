@@ -21,6 +21,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = .clear
         
         if selectedScheme != nil{
             let indexPath = IndexPath(row: selectedScheme, section: 0)
@@ -70,8 +71,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if UIDevice.current.userInterfaceIdiom == .pad {
             cell.label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.regular)
         }
+        cell.selectionStyle = .none
         cell.label.text = schemes[indexPath.row]
         cell.accessoryType = .none
+        cell.backgroundColor = .clear
         return cell
     }
     
@@ -82,6 +85,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.selectRow(at: indexPath as IndexPath, animated:false, scrollPosition:UITableView.ScrollPosition(rawValue: 0)!)
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         tableView.cellForRow(at: indexPath)?.tintColor = UIColor(red: 215/255, green: 20/255, blue: 20/255, alpha: 1.0)
+        tableView.cellForRow(at: indexPath)?.contentView.backgroundColor = .clear
+        tableView.cellForRow(at: indexPath)?.backgroundColor = .clear
     }
 
 }

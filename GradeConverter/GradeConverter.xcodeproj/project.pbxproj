@@ -98,18 +98,14 @@
 		22640D2420749FBE0074E9AD /* GradeConverter */ = {
 			isa = PBXGroup;
 			children = (
-				224EB10620AC0EDF00C6BBD7 /* TableCell.swift */,
+				22EF56C922C959CB0031973D /* Views */,
+				22EF56C822C959BC0031973D /* Cells */,
+				22EF56C722C959A70031973D /* ViewControllers */,
 				22640D2520749FBE0074E9AD /* AppDelegate.swift */,
-				22640D2720749FBE0074E9AD /* RoutesViewController.swift */,
 				22640D2B20749FBE0074E9AD /* Main.storyboard */,
 				22640D2E20749FBE0074E9AD /* Assets.xcassets */,
 				22640D3020749FBE0074E9AD /* LaunchScreen.storyboard */,
 				22640D3320749FBE0074E9AD /* Info.plist */,
-				22F2788A209A8D830004B761 /* GradeCell.swift */,
-				224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */,
-				224EB10E20ACFBA300C6BBD7 /* SettingsViewController.swift */,
-				225EB16822C6FCCA0009F9DC /* TriangleView.swift */,
-				22EF56C522C940E70031973D /* ArrowView.swift */,
 			);
 			path = GradeConverter;
 			sourceTree = "<group>";
@@ -121,6 +117,34 @@
 				22640D3E20749FBE0074E9AD /* Info.plist */,
 			);
 			path = GradeConverterTests;
+			sourceTree = "<group>";
+		};
+		22EF56C722C959A70031973D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				22640D2720749FBE0074E9AD /* RoutesViewController.swift */,
+				224EB10E20ACFBA300C6BBD7 /* SettingsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		22EF56C822C959BC0031973D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				22F2788A209A8D830004B761 /* GradeCell.swift */,
+				224EB10620AC0EDF00C6BBD7 /* TableCell.swift */,
+				224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		22EF56C922C959CB0031973D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				225EB16822C6FCCA0009F9DC /* TriangleView.swift */,
+				22EF56C522C940E70031973D /* ArrowView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

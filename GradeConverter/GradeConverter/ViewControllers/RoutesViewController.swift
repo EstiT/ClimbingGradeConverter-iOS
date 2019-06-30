@@ -88,7 +88,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         //Scroll to closest selected grade
         var index = IndexPath()
         if selectedGrade > gradesWOEmptys[selectedScheme].count - 1 {
-            index = IndexPath(row: gradesWOEmptys[selectedScheme].count - 1, section: 0)
+            index = IndexPath(row: gradesWOEmptys[selectedScheme].count - 1, section: 0) //TODO
         }
         else{
             index = IndexPath(row: selectedGrade, section: 0)
@@ -325,8 +325,12 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
-        headerCell.backgroundColor = UIColor(displayP3Red: 102/255, green: 11/255, blue: 19/255, alpha: 0.7)
+        headerCell.backgroundColor = UIColor(displayP3Red: 102/255, green: 11/255, blue: 19/255, alpha: 1.0)
+            //displayP3Red: 103/255, green: 42/255, blue: 47/255, alpha: 1.0)
+        
         headerCell.headerLabel.textColor = .white
+            //UIColor(displayP3Red: 0.9254902, green: 0.9254902, blue: 0.9254902, alpha: 0.7)
+            //.lightGrey
         
         headerCell.headerLabel.text = ""
         if tableView == schemeList{
@@ -363,7 +367,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         var index = IndexPath()
         if selectedGrade > gradesWOEmptys[selectedScheme].count - 1 {
-            index = IndexPath(row: gradesWOEmptys[selectedScheme].count - 1, section: 0)
+            index = IndexPath(row: gradesWOEmptys[selectedScheme].count - 1, section: 0) //TODO
         }
         else{
             index = IndexPath(row: selectedGrade, section: 0)
