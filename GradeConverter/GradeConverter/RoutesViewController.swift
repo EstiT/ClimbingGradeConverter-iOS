@@ -87,7 +87,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         selectedGradesList.contentInset.left = collectionViewFlowLayout.itemSize.width + collectionViewFlowLayout.minimumLineSpacing + 20
         selectedGradesList.contentInset.right = collectionViewFlowLayout.itemSize.width + collectionViewFlowLayout.minimumLineSpacing + 20
         
-        triangleView.layer.zPosition = 10
+        triangleView.layer.zPosition = 1
         
         if !isKeyPresentInUserDefaults(key: "firstOpen") {
             firstOpen = true
@@ -117,8 +117,12 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         haze = UIView(frame: self.view.frame)
         haze.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0.75)
         self.view.addSubview(haze)
-
+        
+        haze.layer.zPosition = 2
+        arrowView.layer.zPosition = 3
+        text.layer.zPosition = 3
         arrowView.transform = arrowView.transform.rotated(by: CGFloat(-Double.pi/4))
+        
         
         text.isHidden = false
         arrowView.isHidden = false
@@ -155,6 +159,9 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
                 self.text.textAlignment = .center
                 self.text.alpha = 0.0
                 self.view.addSubview(self.text)
+                
+                self.arrowView.layer.zPosition = 3
+                self.text.layer.zPosition = 3
 
                 UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
                     self.text.alpha = 1.0
