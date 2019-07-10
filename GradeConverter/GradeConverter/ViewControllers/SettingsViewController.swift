@@ -12,6 +12,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var infoView: UIView!
+  
     
     var schemes: [String] = ["Ewbank", "YDS",  "French", "UK", "UIAA", "Hueco", "Font"]
     var selectedScheme: Int!
@@ -27,8 +31,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let indexPath = IndexPath(row: selectedScheme, section: 0)
             tableView.selectRow(at: indexPath, animated:false, scrollPosition:UITableView.ScrollPosition(rawValue: 0)!)
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            tableView.cellForRow(at: indexPath)?.tintColor = UIColor(red: 215/255, green: 20/255, blue: 20/255, alpha: 1.0)
+            tableView.cellForRow(at: indexPath)?.tintColor = UIColor(red: 102/255, green: 11/255, blue: 19/255, alpha: 1.0)
         }
+        
+        infoButton.titleLabel?.textColor = UIColor(displayP3Red: 102/255, green: 11/255, blue: 19/255, alpha: 1.0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +50,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             tableView.cellForRow(at: indexPath)?.tintColor = UIColor(red: 215/255, green: 20/255, blue: 20/255, alpha: 1.0)
         }
     }
+    
+    func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
+        let userInfo = notification.userInfo ?? [:]
+        let keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
+        scrollView.contentInset.bottom += adjustmentHeight
+        scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        adjustInsetForKeyboardShow(true, notification: notification)
+    }
 
     @IBAction func closeSettings(_ sender: Any) {
         if let presenter = presentingViewController as? RoutesViewController {
@@ -51,6 +69,20 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             presenter.selectedGrade = 0
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+
+    @IBAction func viewInfo(_ sender: Any) {
+//        let infoView = UINib(nibName: "InfoView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+//        print("width: \(self.view.frame.width-40), height: \(self.view.frame.height-120)")
+//        infoView.frame = CGRect(x: 40, y: 20, width: self.view.frame.width-40, height: self.view.frame.height-120)
+//        self.view.addSubview(infoView)
+
+        infoView.isHidden = false
+    }
+    
+    @IBAction func closeInfo(_ sender: Any) {
+       infoView.isHidden = true
     }
     
     
@@ -88,5 +120,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.cellForRow(at: indexPath)?.contentView.backgroundColor = .clear
         tableView.cellForRow(at: indexPath)?.backgroundColor = .clear
     }
+
 
 }
