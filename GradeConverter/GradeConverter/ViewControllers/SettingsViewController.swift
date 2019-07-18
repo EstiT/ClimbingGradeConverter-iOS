@@ -12,9 +12,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var infoText: UITextView!
   
     
     var schemes: [String] = ["Ewbank", "YDS",  "French", "UK", "UIAA", "Hueco", "Font"]
@@ -51,17 +51,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
-        let userInfo = notification.userInfo ?? [:]
-        let keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
-        scrollView.contentInset.bottom += adjustmentHeight
-        scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
-    }
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
-        adjustInsetForKeyboardShow(true, notification: notification)
-    }
 
     @IBAction func closeSettings(_ sender: Any) {
         if let presenter = presentingViewController as? RoutesViewController {
@@ -73,16 +62,21 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
 
     @IBAction func viewInfo(_ sender: Any) {
-//        let infoView = UINib(nibName: "InfoView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
-//        print("width: \(self.view.frame.width-40), height: \(self.view.frame.height-120)")
-//        infoView.frame = CGRect(x: 40, y: 20, width: self.view.frame.width-40, height: self.view.frame.height-120)
-//        self.view.addSubview(infoView)
-
-        infoView.isHidden = false
+        infoText.setContentOffset(.zero, animated: false)
+        UIView.transition(with: self.infoView, duration: 0.5, options: .transitionFlipFromTop, animations: {
+            self.infoView.alpha = 1.0
+            self.infoView.isHidden = false
+        }, completion: nil)
     }
     
     @IBAction func closeInfo(_ sender: Any) {
-       infoView.isHidden = true
+        UIView.transition(with: self.infoView, duration: 0.5, options: .transitionFlipFromBottom, animations: {self.infoView.alpha = 0.0}, completion:{ (finished: Bool) -> () in
+            self.infoView.isHidden = true
+            
+        })
+        
+       
+      
     }
     
     
@@ -107,6 +101,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         cell.label.text = schemes[indexPath.row]
         cell.accessoryType = .none
         cell.backgroundColor = .clear
+        
+        if indexPath.row == selectedScheme {
+            cell.accessoryType = .checkmark
+        }
         return cell
     }
     

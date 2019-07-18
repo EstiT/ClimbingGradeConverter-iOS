@@ -129,7 +129,9 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         haze.layer.zPosition = 2
         arrowView.layer.zPosition = 3
         text.layer.zPosition = 3
-        arrowView.transform = arrowView.transform.rotated(by: CGFloat(-Double.pi/4))
+        
+        setArrowPosition()
+        arrowView.transform = arrowView.transform.rotated(by: CGFloat(-Double.pi/6))
         
         
         text.isHidden = false
@@ -154,13 +156,14 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
                 self.arrowView.removeFromSuperview()
           
                 self.arrowView = ArrowView()
-                self.arrowView.frame = CGRect(x: 45, y: self.schemeLabel.frame.minY+30, width: 73, height: 64) //y:80
+                self.arrowView.frame = CGRect(x: 45, y: self.schemeLabel.frame.minY+30, width: 73, height: 64)
                 self.arrowView.alpha = 0.0
                 self.view.addSubview(self.arrowView)
                 self.arrowView.backgroundColor = .clear
                 
                 self.text = UILabel()
                 self.text.frame = CGRect(x: 60, y: self.arrowView.frame.minY+40, width: 300, height: 80)
+                self.text.center.x = self.view.center.x
                 self.text.text = "Scroll here to select a grade"
                 self.text.textColor = UIColor(displayP3Red: 102/255, green: 11/255, blue: 19/255, alpha: 1.0)
                 self.text.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir-Heavy", size: 26.0), size: 26.0)
@@ -194,6 +197,39 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
     }
     
+    func setArrowPosition(){
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                print("iPhone 5 or 5S or 5C")
+                arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY, width: 73, height: 64)
+                
+            case 1334:
+                print("iPhone 6/6S/7/8")
+                arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY, width: 73, height: 64)
+                
+            case 1920, 2208:
+                print("iPhone 6+/6S+/7+/8+")
+                arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY, width: 73, height: 64)
+                
+            case 2436:
+                print("iPhone X, XS")
+                arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY+settingsButton.frame.height/2, width: 73, height: 64)
+                
+            case 2688:
+                print("iPhone XS Max")
+                arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY+settingsButton.frame.height/2, width: 73, height: 64)
+                
+            case 1792:
+                print("iPhone XR")
+                arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY+settingsButton.frame.height/2, width: 73, height: 64)
+                
+            default:
+                print("Unknown")
+                arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY+settingsButton.frame.height/2, width: 73, height: 64)
+            }
+        }
+    }
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
     }

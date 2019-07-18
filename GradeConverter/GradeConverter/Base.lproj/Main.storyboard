@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9pv-A4-QxB">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,16 +15,15 @@
             <objects>
                 <viewController id="9pv-A4-QxB" userLabel="Routes" customClass="RoutesViewController" customModule="GradeConverter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NiA-n1-hXP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="NiA-n1-hXP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
                                 <color key="backgroundColor" red="1" green="0.94117647058823528" blue="0.90980392156862744" alpha="0.80928938356164382" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Routes" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="138.5" y="45" width="98.5" height="40"/>
+                                <rect key="frame" x="157.66666666666666" y="45" width="98.999999999999972" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="dHy-D1-GlU"/>
                                 </constraints>
@@ -33,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0I-to-Zb2" userLabel="triangle" customClass="TriangleView" customModule="GradeConverter" customModuleProvider="target">
-                                <rect key="frame" x="175.5" y="90" width="24" height="19"/>
+                                <rect key="frame" x="195" y="90" width="24" height="19"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="dma-89-47o"/>
@@ -41,11 +40,10 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ehI-VH-TpU">
-                                <rect key="frame" x="0.0" y="97" width="375" height="52"/>
+                                <rect key="frame" x="0.0" y="97" width="414" height="52"/>
                                 <color key="backgroundColor" red="0.4288214977437721" green="0.43977901710587303" blue="0.44848508883248728" alpha="0.32585081335616439" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="42R-LY-Z7R"/>
-                                    <constraint firstAttribute="width" constant="375" id="nnd-Vm-Xhq"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Fg-Ti-LBC">
                                     <size key="itemSize" width="99" height="52.5"/>
@@ -55,14 +53,14 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="GradeCell" id="8IE-DE-dSX" customClass="GradeCell" customModule="GradeConverter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-0.5" width="99" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="-0.33333333333333331" width="99" height="52.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="99" height="52.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIp-cL-ORk">
-                                                    <rect key="frame" x="22" y="14.5" width="55" height="24"/>
+                                                    <rect key="frame" x="22" y="14.333333333333336" width="55" height="24"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -90,14 +88,9 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <mask key="constraints">
-                                        <exclude reference="nnd-Vm-Xhq"/>
-                                    </mask>
-                                </variation>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="no5-yQ-VnP">
-                                <rect key="frame" x="16" y="157" width="161" height="510"/>
+                                <rect key="frame" x="16" y="157" width="161" height="579"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="161" id="6gb-6U-c0p"/>
@@ -107,11 +100,11 @@
                                         <rect key="frame" x="0.0" y="28" width="161" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R2a-BI-RNh" id="i7n-jA-why">
-                                            <rect key="frame" x="0.0" y="0.0" width="161" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="161" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOY-YC-0dO">
-                                                    <rect key="frame" x="16" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="16" y="11.333333333333336" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="SmS-LA-YtZ"/>
                                                     </constraints>
@@ -135,11 +128,11 @@
                                         <rect key="frame" x="0.0" y="72" width="161" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zrt-rJ-8yW" id="Myl-Y6-ww6">
-                                            <rect key="frame" x="0.0" y="0.0" width="161" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="161" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="889-h9-zkx">
-                                                    <rect key="frame" x="58.5" y="11" width="44" height="21.5"/>
+                                                    <rect key="frame" x="58.666666666666657" y="11.000000000000002" width="44" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -158,18 +151,18 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Bh-Ph-YbQ">
-                                <rect key="frame" x="179" y="157" width="180" height="510"/>
+                                <rect key="frame" x="179" y="157" width="219" height="579"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" id="53N-NF-aGB" customClass="TableCell" customModule="GradeConverter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="180" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="219" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="53N-NF-aGB" id="76X-2u-3hN">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="219" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWk-HI-LeA">
-                                                    <rect key="frame" x="19" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="24" y="11.333333333333336" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -187,14 +180,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" id="3sb-Np-6A4" customClass="HeaderCell" customModule="GradeConverter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="180" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="219" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3sb-Np-6A4" id="2aP-TS-zIw">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="219" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZT-r3-oZh">
-                                                    <rect key="frame" x="68" y="11" width="44" height="21.5"/>
+                                                    <rect key="frame" x="264.66666666666669" y="11.000000000000002" width="44" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -212,7 +205,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukJ-55-8bI">
-                                <rect key="frame" x="325" y="23" width="50" height="45"/>
+                                <rect key="frame" x="364" y="23" width="50" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usc-N5-vdk">
                                         <rect key="frame" x="7" y="5" width="35" height="35"/>
@@ -233,7 +226,7 @@
                                 </constraints>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nad-fE-Vyl">
-                                <rect key="frame" x="44" y="80" width="287" height="71.5"/>
+                                <rect key="frame" x="44" y="80" width="326" height="71.333333333333314"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Set your preferred scheme here">
                                         <attributes>
@@ -253,13 +246,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="NiA-n1-hXP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="13f-08-OIU"/>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="top" secondItem="ehI-VH-TpU" secondAttribute="bottom" constant="8" id="1Io-nK-5oF"/>
+                            <constraint firstItem="NiA-n1-hXP" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="2in-hg-Q5v"/>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="9Bh-Ph-YbQ" secondAttribute="trailing" constant="16" id="9VH-As-TLH"/>
+                            <constraint firstItem="NiA-n1-hXP" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" constant="34" id="Fg2-wz-RJ3"/>
                             <constraint firstItem="Z0I-to-Zb2" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="KnD-Fq-ct5"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="MIk-5T-g4H"/>
                             <constraint firstItem="Nad-fE-Vyl" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="60" id="TbB-Pz-XvX"/>
                             <constraint firstItem="no5-yQ-VnP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="WXP-pb-0tS"/>
+                            <constraint firstItem="NiA-n1-hXP" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="X34-ZO-VCI"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="YkN-BC-jcw"/>
                             <constraint firstItem="ehI-VH-TpU" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="12" id="ZsV-4O-Uvn"/>
                             <constraint firstItem="Nad-fE-Vyl" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="44" id="deB-qn-czt"/>
@@ -294,24 +291,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692" y="-322.48875562218893"/>
+            <point key="canvasLocation" x="691.304347826087" y="-322.76785714285711"/>
         </scene>
         <!--Settings-->
         <scene sceneID="bSz-n5-1V2">
             <objects>
                 <viewController id="uO4-dp-kdg" userLabel="Settings" customClass="SettingsViewController" customModule="GradeConverter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iQX-aC-vc4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sdn-7n-Hie">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdn-7n-Hie">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.90980392160000001" alpha="0.80928938360000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <viewLayoutGuide key="safeArea" id="zW8-wS-XTU"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="YGV-0r-X9h">
-                                <rect key="frame" x="128.5" y="45" width="118" height="40"/>
+                                <rect key="frame" x="148" y="45" width="118" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Tcy-Xh-iQZ"/>
                                 </constraints>
@@ -319,14 +315,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Your Preferred Grading Scheme:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYm-5D-Hsk">
-                                <rect key="frame" x="25" y="110" width="340" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYm-5D-Hsk">
+                                <rect key="frame" x="25" y="110" width="379" height="20.333333333333343"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Select Your Preferred Grading Scheme:">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7hO-uf-29p" userLabel="info">
-                                <rect key="frame" x="106.5" y="491" width="162" height="33.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7hO-uf-29p" userLabel="info">
+                                <rect key="frame" x="126" y="490.33333333333326" width="162" height="33.666666666666742"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="About the schemes ">
@@ -342,7 +344,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fz1-2n-LU3">
-                                <rect key="frame" x="325" y="30" width="40" height="40"/>
+                                <rect key="frame" x="364" y="30" width="40" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="right" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUq-5A-f2m" userLabel="Close Button">
                                         <rect key="frame" x="6" y="0.0" width="34" height="34"/>
@@ -364,22 +366,22 @@
                                     <constraint firstAttribute="width" constant="40" id="z7a-N4-C0G"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pnk-gU-ZJd">
-                                <rect key="frame" x="16" y="156" width="343" height="310"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pnk-gU-ZJd">
+                                <rect key="frame" x="16" y="155.33333333333337" width="382" height="310"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="310" id="ReM-No-zhd"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" id="Brq-tf-SRq" customClass="TableCell" customModule="GradeConverter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="382" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Brq-tf-SRq" id="yNC-wi-cRC">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cs-Jt-GWt">
-                                                    <rect key="frame" x="39" y="10.5" width="265" height="22.5"/>
+                                                    <rect key="frame" x="39" y="10.5" width="304" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -399,117 +401,143 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMG-Ur-xo8" userLabel="info">
-                                <rect key="frame" x="20" y="80" width="335" height="527"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMG-Ur-xo8" userLabel="info" customClass="RoundedView" customModule="GradeConverter" customModuleProvider="target">
+                                <rect key="frame" x="20" y="111" width="374" height="485"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GYR-rJ-tko">
-                                        <rect key="frame" x="0.0" y="57" width="335" height="521"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="el6-tg-9OE">
-                                                <rect key="frame" x="8" y="62" width="34" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hm-DW-cbQ">
-                                                <rect key="frame" x="8" y="210" width="23" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hueco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="702-1D-SAS">
-                                                <rect key="frame" x="8" y="382" width="50" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UIAA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxW-Ey-Tsi">
-                                                <rect key="frame" x="8" y="309" width="39" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="French" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayb-5q-DXG">
-                                                <rect key="frame" x="8" y="143" width="53" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ewbanks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzA-AN-UAV">
-                                                <rect key="frame" x="8" y="-2" width="69" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Rating system used in Australia, New Zealand, Papua New Guinea and Tonga. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5QZ-mm-tAh">
-                                                <rect key="frame" x="96" y="-2" width="229" height="69"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="(Yosemite Decimal System) Used in North America and other countries. Ranges from 5.0 to 5.15d." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mWV-3x-dQd">
-                                                <rect key="frame" x="96" y="62" width="229" height="83"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="The primary system used in Europe. Starts at 1 and is open ended." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XSa-0W-zai">
-                                                <rect key="frame" x="96" y="143" width="229" height="64"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Used in Great Britian and Ireland for trad climbs. Generally has two parts, the adjectival grade  and technical grade." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oXz-ZN-cpU">
-                                                <rect key="frame" x="96" y="203" width="229" height="89"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="Used by some countries in Europe for certain routes. Consists of roman numerals with I being the easiest." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="42s-MT-Pdt">
-                                                <rect key="frame" x="96" y="292" width="229" height="88"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="V scale used for bouldering predominantly in North America. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aia-1F-Mg9">
-                                                <rect key="frame" x="96" y="382" width="229" height="51"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="(Fontainebleau) Bouldering system used in Europe. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fbU-vU-mWK">
-                                                <rect key="frame" x="96" y="456" width="229" height="51"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfZ-od-rMC">
-                                                <rect key="frame" x="8" y="456" width="35" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </scrollView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zFt-WJ-jrz">
+                                        <rect key="frame" x="20" y="40" width="334" height="415"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Ewbanks">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> - Rating system used in Australia, New Zealand, Papua New Guinea and Tonga. 
+
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="YDS">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> - (Yosemite Decimal System) Used in North America and other countries. Ranges from 5.0 to 5.15d. 
+
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="French">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> - The primary system used in Europe. Starts at 1 and is open ended.  
+
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="UK">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> - Used in Great Britain and Ireland for trad climbs. Generally has two parts, the adjectival grade  and technical grade.  
+
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="UIAA">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> - Used by some countries in Europe for certain routes. Consists of roman numerals with I being the easiest.  
+
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Hueco">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> - V scale used for bouldering predominantly in North America.  
+
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Font">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" - (Fontainebleau) Bouldering system used in Europe. ">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="haO-sh-b5X">
-                                        <rect key="frame" x="293" y="15" width="34" height="34"/>
+                                        <rect key="frame" x="336" y="10" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="HMp-NC-bvG"/>
-                                            <constraint firstAttribute="width" constant="34" id="sRw-ke-Z1Q"/>
+                                            <constraint firstAttribute="height" constant="30" id="HMp-NC-bvG"/>
+                                            <constraint firstAttribute="width" constant="30" id="sRw-ke-Z1Q"/>
                                         </constraints>
                                         <state key="normal" image="close2">
                                             <attributedString key="attributedTitle"/>
@@ -519,19 +547,26 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.84313725490196079" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" adjustable="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstItem="GYR-rJ-tko" firstAttribute="leading" secondItem="FWK-wk-ANu" secondAttribute="leading" id="6X7-WH-ApR"/>
-                                    <constraint firstItem="haO-sh-b5X" firstAttribute="top" secondItem="fMG-Ur-xo8" secondAttribute="top" constant="15" id="CJN-3D-TOM"/>
-                                    <constraint firstAttribute="bottom" secondItem="GYR-rJ-tko" secondAttribute="bottom" id="Jom-i9-I8e"/>
-                                    <constraint firstItem="GYR-rJ-tko" firstAttribute="trailing" secondItem="FWK-wk-ANu" secondAttribute="trailing" id="RmD-fX-fHO"/>
-                                    <constraint firstItem="GYR-rJ-tko" firstAttribute="top" secondItem="haO-sh-b5X" secondAttribute="bottom" id="gba-TS-mvT"/>
+                                    <constraint firstItem="haO-sh-b5X" firstAttribute="top" secondItem="fMG-Ur-xo8" secondAttribute="top" constant="10" id="CJN-3D-TOM"/>
+                                    <constraint firstAttribute="height" constant="485" id="Fjw-qh-CdU"/>
+                                    <constraint firstItem="zFt-WJ-jrz" firstAttribute="leading" secondItem="FWK-wk-ANu" secondAttribute="leading" constant="20" id="SUD-ub-4Si"/>
+                                    <constraint firstItem="FWK-wk-ANu" firstAttribute="bottom" secondItem="zFt-WJ-jrz" secondAttribute="bottom" constant="30" id="fvw-IX-rZ3"/>
+                                    <constraint firstItem="FWK-wk-ANu" firstAttribute="trailing" secondItem="zFt-WJ-jrz" secondAttribute="trailing" constant="20" id="jx6-5m-1oN"/>
+                                    <constraint firstItem="zFt-WJ-jrz" firstAttribute="top" secondItem="haO-sh-b5X" secondAttribute="bottom" id="olK-R9-yrJ"/>
                                     <constraint firstItem="haO-sh-b5X" firstAttribute="trailing" secondItem="fMG-Ur-xo8" secondAttribute="trailingMargin" id="ugY-KH-SDm"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="FWK-wk-ANu"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -539,19 +574,23 @@
                             <constraint firstItem="pnk-gU-ZJd" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" constant="16" id="1O8-2z-kVd"/>
                             <constraint firstItem="qbN-Ug-h37" firstAttribute="trailing" secondItem="oYm-5D-Hsk" secondAttribute="trailing" constant="10" id="1dZ-SB-GRD"/>
                             <constraint firstAttribute="trailing" secondItem="Fz1-2n-LU3" secondAttribute="trailing" constant="10" id="2JQ-mG-xEQ"/>
-                            <constraint firstItem="fMG-Ur-xo8" firstAttribute="top" secondItem="iQX-aC-vc4" secondAttribute="top" constant="80" id="DyV-LH-fLD"/>
+                            <constraint firstItem="qbN-Ug-h37" firstAttribute="trailing" secondItem="fMG-Ur-xo8" secondAttribute="trailing" constant="20" id="4sR-Mm-3Fa"/>
+                            <constraint firstItem="Sdn-7n-Hie" firstAttribute="top" secondItem="iQX-aC-vc4" secondAttribute="top" id="BKQ-nD-4Uc"/>
+                            <constraint firstItem="fMG-Ur-xo8" firstAttribute="centerY" secondItem="qbN-Ug-h37" secondAttribute="centerY" id="DEU-pg-iVp"/>
+                            <constraint firstItem="fMG-Ur-xo8" firstAttribute="centerX" secondItem="qbN-Ug-h37" secondAttribute="centerX" id="Gyo-JK-Fct"/>
+                            <constraint firstItem="Sdn-7n-Hie" firstAttribute="trailing" secondItem="qbN-Ug-h37" secondAttribute="trailing" id="HTi-xJ-6Qx"/>
                             <constraint firstItem="qbN-Ug-h37" firstAttribute="trailing" secondItem="pnk-gU-ZJd" secondAttribute="trailing" constant="16" id="JOg-xy-R82"/>
-                            <constraint firstItem="qbN-Ug-h37" firstAttribute="trailing" secondItem="fMG-Ur-xo8" secondAttribute="trailing" constant="20" id="XPu-5T-bJH"/>
-                            <constraint firstItem="7hO-uf-29p" firstAttribute="top" secondItem="pnk-gU-ZJd" secondAttribute="bottom" constant="25" id="a0C-M5-uhv"/>
+                            <constraint firstItem="Sdn-7n-Hie" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" id="Mw7-eb-5aE"/>
+                            <constraint firstAttribute="bottom" secondItem="Sdn-7n-Hie" secondAttribute="bottom" id="TKP-0l-Syu"/>
+                            <constraint firstItem="7hO-uf-29p" firstAttribute="top" secondItem="pnk-gU-ZJd" secondAttribute="bottom" constant="20" id="a0C-M5-uhv"/>
+                            <constraint firstItem="fMG-Ur-xo8" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" constant="20" id="aFm-Fc-1ue"/>
                             <constraint firstItem="YGV-0r-X9h" firstAttribute="top" secondItem="qbN-Ug-h37" secondAttribute="top" constant="25" id="e50-ED-qOu"/>
                             <constraint firstItem="YGV-0r-X9h" firstAttribute="centerX" secondItem="iQX-aC-vc4" secondAttribute="centerX" id="hPp-34-goA"/>
                             <constraint firstItem="oYm-5D-Hsk" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" constant="25" id="l3a-0Z-ux2"/>
-                            <constraint firstAttribute="bottom" secondItem="fMG-Ur-xo8" secondAttribute="bottom" constant="60" id="nfD-5Y-Ilf"/>
                             <constraint firstItem="7hO-uf-29p" firstAttribute="centerX" secondItem="iQX-aC-vc4" secondAttribute="centerX" id="pnf-Vg-XoO"/>
                             <constraint firstItem="oYm-5D-Hsk" firstAttribute="top" secondItem="Fz1-2n-LU3" secondAttribute="bottom" constant="40" id="rKO-4R-ndh"/>
                             <constraint firstItem="Fz1-2n-LU3" firstAttribute="top" secondItem="qbN-Ug-h37" secondAttribute="top" constant="10" id="wBL-Ds-R47"/>
-                            <constraint firstItem="pnk-gU-ZJd" firstAttribute="top" secondItem="oYm-5D-Hsk" secondAttribute="bottom" constant="25" id="wpf-bV-RbM"/>
-                            <constraint firstItem="fMG-Ur-xo8" firstAttribute="leading" secondItem="qbN-Ug-h37" secondAttribute="leading" constant="20" id="zSb-l2-DdN"/>
+                            <constraint firstItem="pnk-gU-ZJd" firstAttribute="top" relation="lessThanOrEqual" secondItem="oYm-5D-Hsk" secondAttribute="bottom" constant="25" id="wpf-bV-RbM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qbN-Ug-h37"/>
                     </view>
@@ -559,14 +598,14 @@
                     <connections>
                         <outlet property="closeButton" destination="PUq-5A-f2m" id="gcS-e7-HFk"/>
                         <outlet property="infoButton" destination="7hO-uf-29p" id="yPP-Ub-jRp"/>
+                        <outlet property="infoText" destination="zFt-WJ-jrz" id="fGf-SM-YPx"/>
                         <outlet property="infoView" destination="fMG-Ur-xo8" id="Vb0-HB-9AX"/>
-                        <outlet property="scrollView" destination="GYR-rJ-tko" id="Urb-dI-YGi"/>
                         <outlet property="tableView" destination="pnk-gU-ZJd" id="LTM-g3-LMH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeq-u7-M48" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1728.8" y="-321.58920539730138"/>
+            <point key="canvasLocation" x="1726.0869565217392" y="-322.82608695652175"/>
         </scene>
     </scenes>
     <resources>
