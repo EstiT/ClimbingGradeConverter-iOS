@@ -229,6 +229,9 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
                 arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY+settingsButton.frame.height/2, width: 73, height: 64)
             }
         }
+        else if UIDevice().userInterfaceIdiom == .pad {
+            arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY+settingsButton.frame.height/2, width: 73, height: 64)
+        }
     }
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223B4CB822D66F8F005CB3DD /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223B4CB722D66F8F005CB3DD /* RoundedView.swift */; };
 		224EB10720AC0EDF00C6BBD7 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EB10620AC0EDF00C6BBD7 /* TableCell.swift */; };
 		224EB10D20AC5DD800C6BBD7 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */; };
 		224EB10F20ACFBA300C6BBD7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EB10E20ACFBA300C6BBD7 /* SettingsViewController.swift */; };
@@ -21,6 +22,7 @@
 		22A2CA9A22050FC500DA0C16 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A2CA9722050FC400DA0C16 /* Splash.png */; };
 		22A2CA9B22050FC500DA0C16 /* Splash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A2CA9822050FC500DA0C16 /* Splash@3x.png */; };
 		22EF56C622C940E70031973D /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF56C522C940E70031973D /* ArrowView.swift */; };
+		22EF56CB22CBDAEF0031973D /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EF56CA22CBDAEF0031973D /* InfoView.xib */; };
 		22F2788B209A8D830004B761 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2788A209A8D830004B761 /* GradeCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		223B4CB722D66F8F005CB3DD /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		224EB10620AC0EDF00C6BBD7 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		224EB10C20AC5DD800C6BBD7 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		224EB10E20ACFBA300C6BBD7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 		22A2CA9722050FC400DA0C16 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = ../Splash/Splash.png; sourceTree = "<group>"; };
 		22A2CA9822050FC500DA0C16 /* Splash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Splash@3x.png"; path = "../Splash/Splash@3x.png"; sourceTree = "<group>"; };
 		22EF56C522C940E70031973D /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
+		22EF56CA22CBDAEF0031973D /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		22F2788A209A8D830004B761 /* GradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +147,8 @@
 			children = (
 				225EB16822C6FCCA0009F9DC /* TriangleView.swift */,
 				22EF56C522C940E70031973D /* ArrowView.swift */,
+				22EF56CA22CBDAEF0031973D /* InfoView.xib */,
+				223B4CB722D66F8F005CB3DD /* RoundedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22A2CA9B22050FC500DA0C16 /* Splash@3x.png in Resources */,
+				22EF56CB22CBDAEF0031973D /* InfoView.xib in Resources */,
 				22640D3220749FBE0074E9AD /* LaunchScreen.storyboard in Resources */,
 				22A2CA9922050FC500DA0C16 /* Splash@2x.png in Resources */,
 				22A2CA9A22050FC500DA0C16 /* Splash.png in Resources */,
@@ -257,6 +264,7 @@
 			files = (
 				225EB16922C6FCCA0009F9DC /* TriangleView.swift in Sources */,
 				22EF56C622C940E70031973D /* ArrowView.swift in Sources */,
+				223B4CB822D66F8F005CB3DD /* RoundedView.swift in Sources */,
 				224EB10D20AC5DD800C6BBD7 /* HeaderCell.swift in Sources */,
 				22F2788B209A8D830004B761 /* GradeCell.swift in Sources */,
 				22640D2620749FBE0074E9AD /* AppDelegate.swift in Sources */,
