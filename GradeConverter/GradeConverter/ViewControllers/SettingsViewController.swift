@@ -53,10 +53,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
 
     @IBAction func closeSettings(_ sender: Any) {
-        if let presenter = presentingViewController as? RoutesViewController {
-            presenter.selectedScheme = self.selectedScheme
-            presenter.selectedGrade = 0
-        }
+        (presentationController?.delegate as! RoutesViewController).viewDidAppear(false)
         dismiss(animated: true, completion: nil)
     }
     

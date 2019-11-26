@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  RoutesViewController.swift
 //  GradeConverter
 //
 //  Created by Esti Tweg on 2018-04-04.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class RoutesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource {
+class RoutesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
+UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate  {
     
     var schemes: [String] = ["Ewbank", "YDS",  "French", "UK", "UIAA", "Hueco", "Font"]
     
@@ -58,9 +59,8 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //restore preferences
-        selectedScheme = UserDefaults.standard.integer(forKey: "selectedScheme")
-        selectedGrade = UserDefaults.standard.integer(forKey: "selectedGrade")
+        updateSelectedScheme()
+        
         selectedGradesList.allowsSelection = false
         selectedGradesList.dataSource = self
         selectedGradesList.delegate = self
@@ -83,7 +83,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
 
         //Scroll to closest selected grade
         var index = IndexPath()
-        if selectedScheme == 4 || selectedScheme == 5 {
+        if selectedScheme == 5 || selectedScheme == 6 {
             index = IndexPath(row: selectedGrade-6, section: 0)
         }
         else{
@@ -112,9 +112,17 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        selectedGrade = UserDefaults.standard.integer(forKey: "selectedGrade")
         updateSelectedScheme()
     }
+    
+    //https://stackoverflow.com/questions/56568967/detecting-sheet-was-dismissed-on-ios-13
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController){
+        updateSelectedScheme()
+    }
+
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        updateSelectedScheme()
+     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -132,7 +140,6 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         setArrowPosition()
         arrowView.transform = arrowView.transform.rotated(by: CGFloat(-Double.pi/6))
-        
         
         text.isHidden = false
         arrowView.isHidden = false
@@ -250,7 +257,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     // MARK: COLLECTION VIEW
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        if selectedScheme == 4 || selectedScheme == 5 { //bouldering
+        if selectedScheme == 5 || selectedScheme == 6 { //bouldering
             return grades[selectedScheme].count - 6
         }
         else{
@@ -260,7 +267,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GradeCell", for: indexPath) as! GradeCell
-        if selectedScheme == 4 || selectedScheme == 5 { //bouldering
+        if selectedScheme == 5 || selectedScheme == 6 { //bouldering
             cell.gradeName = grades[selectedScheme][indexPath.row+6]
         }
         else{
@@ -273,7 +280,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let center = self.view.convert(selectedGradesList.center, to: selectedGradesList)
         if let centerIndexPath = selectedGradesList.indexPathForItem(at: center){
             selectedGradesList.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
-            if selectedScheme == 4 || selectedScheme == 5 {
+            if selectedScheme == 5 || selectedScheme == 6 {
                 selectedGrade = centerIndexPath.row + 6
             }
             else{
@@ -285,7 +292,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
             let center2 = CGPoint(x: center.x + 5, y: center.y)
             if let centerIndexPath = selectedGradesList.indexPathForItem(at: center2){
                 selectedGradesList.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
-                if selectedScheme == 4 || selectedScheme == 5 {
+                if selectedScheme == 5 || selectedScheme == 6 {
                     selectedGrade = centerIndexPath.row + 6
                 }
                 else{
@@ -297,7 +304,7 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
                 let center3 = CGPoint(x: center.x - 5, y: center.y)
                 if let centerIndexPath = selectedGradesList.indexPathForItem(at: center3){
                     selectedGradesList.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
-                    if selectedScheme == 4 || selectedScheme == 5 {
+                    if selectedScheme == 5 || selectedScheme == 6 {
                         selectedGrade = centerIndexPath.row + 6
                     }
                     else{
@@ -344,13 +351,8 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
             if indexPath.section == 0{
                 cell.label.text = schemes[indexPath.row]
             }
-            else{
-                if indexPath.row == 1 {
-                    cell.label.text = "UK"
-                }
-                else{
-                    cell.label.text = schemes[indexPath.row + 5]
-                }
+            else if indexPath.section == 1{
+                cell.label.text = schemes[indexPath.row + 5]
             }
         }
         else if tableView == gradesList {
@@ -370,13 +372,9 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
         headerCell.backgroundColor = UIColor(displayP3Red: 102/255, green: 11/255, blue: 19/255, alpha: 1.0)
-            //displayP3Red: 103/255, green: 42/255, blue: 47/255, alpha: 1.0)
-        
         headerCell.headerLabel.textColor = .white
-            //UIColor(displayP3Red: 0.9254902, green: 0.9254902, blue: 0.9254902, alpha: 0.7)
-            //.lightGrey
-        
         headerCell.headerLabel.text = ""
+        
         if tableView == schemeList{
             switch (section) {
             case 0:
@@ -390,50 +388,38 @@ class RoutesViewController: UIViewController, UICollectionViewDataSource, UIColl
         return headerCell
     }
     
-    //- SETTINGS
+    // MARK: SETTINGS
     
     @IBAction func settingsTapped(_ sender: Any) {
               performSegue(withIdentifier: "settingsSegue", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "settingsSegue" {
             if let settingsViewController = segue.destination as? SettingsViewController {
                 settingsViewController.selectedScheme = self.selectedScheme
+                segue.destination.presentationController?.delegate = self
             }
         }
     }
     
     func updateSelectedScheme(){
+        selectedGrade = UserDefaults.standard.integer(forKey: "selectedGrade")
+        selectedScheme = UserDefaults.standard.integer(forKey: "selectedScheme")
+        
         schemeLabel.text = schemes[selectedScheme]
         gradesList.reloadData()
         selectedGradesList.reloadData()
-        
         var index = IndexPath()
-        if selectedScheme == 4 || selectedScheme == 5 {
+        if selectedScheme == 5 || selectedScheme == 6{
             index = IndexPath(row: selectedGrade-6, section: 0)
         }
-        else{
+        else {
             index = IndexPath(row: selectedGrade, section: 0)
         }
         selectedGradesList.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
-        
     }
    
     
-}
-
-
-
-extension String
-{
-    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat
-    {
-        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height);
-        
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-        
-        return boundingBox.width;
-    }
 }
 

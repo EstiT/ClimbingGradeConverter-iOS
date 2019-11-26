@@ -12,6 +12,7 @@ import UIKit
 //https://stackoverflow.com/questions/46713603/round-corners-uiview-in-swift-4
 @IBDesignable
 class RoundedView: UIView {
+//    var selectedScheme = 0
     @IBInspectable var borderColor: UIColor = UIColor(displayP3Red: 227/255.0, green: 143/255.0, blue: 61/255.0, alpha: 1.0) {
         didSet {
             self.layer.borderColor = borderColor.cgColor
