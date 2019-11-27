@@ -38,6 +38,7 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
     
     @IBOutlet weak var schemeLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var backgroundView: UIView!
     
     var selectedScheme = 0
     var selectedGrade = 0
@@ -109,10 +110,18 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
         if UIDevice.current.userInterfaceIdiom == .pad {
             iPadLayout()
         }
+        
+        checkColorTheme()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         updateSelectedScheme()
+        checkColorTheme()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        checkColorTheme()
     }
     
     //https://stackoverflow.com/questions/56568967/detecting-sheet-was-dismissed-on-ios-13
@@ -127,6 +136,19 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func checkColorTheme(){
+        if #available(iOS 12.0, *) {
+//            https://stackoverflow.com/questions/56457395/how-to-check-for-ios-dark-mode
+            if self.traitCollection.userInterfaceStyle == .dark {
+                backgroundView.backgroundColor = .black
+            }
+            else {
+                backgroundView.backgroundColor = UIColor(red: CGFloat(255) / 255.0, green: CGFloat(240) / 255.0, blue: CGFloat(232) / 255.0, alpha: 1.0)
+                
+            }
+        }
     }
     
     func startOnboarding(){

@@ -185,7 +185,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZT-r3-oZh">
-                                                    <rect key="frame" x="87.666666666666686" y="11.000000000000002" width="44.000000000000014" height="21.666666666666671"/>
+                                                    <rect key="frame" x="87.666666666666671" y="11.000000000000002" width="44.000000000000014" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -272,6 +272,7 @@
                     </view>
                     <connections>
                         <outlet property="arrowView" destination="ZTS-A1-r83" id="eB4-Dj-BmT"/>
+                        <outlet property="backgroundView" destination="NiA-n1-hXP" id="mTN-Kq-Qed"/>
                         <outlet property="gradeTrailingConstraint" destination="9VH-As-TLH" id="iNj-j4-gYz"/>
                         <outlet property="gradesList" destination="9Bh-Ph-YbQ" id="nDn-tO-fPh"/>
                         <outlet property="labelToSlideConstraint" destination="ZsV-4O-Uvn" id="1Aq-6g-w5P"/>
@@ -593,6 +594,7 @@
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backgroundView" destination="Sdn-7n-Hie" id="b6L-cP-p0g"/>
                         <outlet property="closeButton" destination="PUq-5A-f2m" id="gcS-e7-HFk"/>
                         <outlet property="infoButton" destination="7hO-uf-29p" id="yPP-Ub-jRp"/>
                         <outlet property="infoText" destination="zFt-WJ-jrz" id="fGf-SM-YPx"/>
