@@ -3,7 +3,7 @@ GradeConverter Privacy Policy
 App Owner: Esti Tweg
 
 Data Being Collected
-	•	Emoji-Dash keeps track of the following:
+	•	Grade Converter keeps track of the following:
 	 ⁃	Selected preferred grading scheme
 	 ⁃	Selected grade
 
@@ -29,4 +29,4 @@ Changes to the Privacy Policy
 	•	The most up to date privacy policy is publicly displayed here. Changes will not explicitly be outlined in this document but are reflected in commit messages.
 
 Effective Date of the Privacy Policy
-July 18, 2019
+July 24, 2020
