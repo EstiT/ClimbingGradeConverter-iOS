@@ -9,7 +9,7 @@
 import UIKit
 
 class RoutesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
-UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate  {
+UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate, RoutesDelegate  {
     
     var schemes: [String] = ["Ewbank", "YDS",  "French", "UK", "UIAA", "Hueco", "Font"]
     
@@ -81,16 +81,6 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
         gradesList.tableFooterView = UIView(frame: .zero)
         gradesList.backgroundColor = .clear
         gradesList.separatorColor = .black
-
-        //Scroll to closest selected grade
-        var index = IndexPath()
-        if selectedScheme == 5 || selectedScheme == 6 {
-            index = IndexPath(row: selectedGrade-6, section: 0)
-        }
-        else{
-            index = IndexPath(row: selectedGrade, section: 0)
-        }
-        selectedGradesList.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
         
         collectionViewFlowLayout = selectedGradesList.collectionViewLayout as? UICollectionViewFlowLayout
         selectedGradesList.contentInset.left = collectionViewFlowLayout.itemSize.width + collectionViewFlowLayout.minimumLineSpacing + 20
@@ -101,7 +91,7 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
         if !isKeyPresentInUserDefaults(key: "firstOpen") {
             firstOpen = true
         }
-        else{
+        else {
             firstOpen = UserDefaults.standard.bool(forKey: "firstOpen")
         }
         if firstOpen {
@@ -110,13 +100,11 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
         if UIDevice.current.userInterfaceIdiom == .pad {
             iPadLayout()
         }
-        
-        checkColorTheme()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         updateSelectedScheme()
+        scrollToSelected()
         checkColorTheme()
     }
     
@@ -138,7 +126,18 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
         // Dispose of any resources that can be recreated.
     }
     
-    func checkColorTheme(){
+    func scrollToSelected() {
+        var index = IndexPath()
+        if selectedScheme == 5 || selectedScheme == 6 {
+            index = IndexPath(row: selectedGrade-6, section: 0)
+        }
+        else{
+            index = IndexPath(row: selectedGrade, section: 0)
+        }
+        selectedGradesList.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+    }
+    
+    func checkColorTheme() {
         if #available(iOS 12.0, *) {
 //            https://stackoverflow.com/questions/56457395/how-to-check-for-ios-dark-mode
             if self.traitCollection.userInterfaceStyle == .dark {
@@ -146,12 +145,11 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
             }
             else {
                 backgroundView.backgroundColor = UIColor(red: CGFloat(255) / 255.0, green: CGFloat(240) / 255.0, blue: CGFloat(232) / 255.0, alpha: 1.0)
-                
             }
         }
     }
     
-    func startOnboarding(){
+    func startOnboarding() {
         haze = UIView(frame: self.view.frame)
         haze.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0.75)
         self.view.addSubview(haze)
@@ -226,35 +224,28 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
         }
     }
     
-    func setArrowPosition(){
+    func setArrowPosition() {
         if UIDevice().userInterfaceIdiom == .phone {
             switch UIScreen.main.nativeBounds.height {
-            case 1136:
-                print("iPhone 5 or 5S or 5C")
+            case 1136: // iPhone 5 or 5S or 5C
                 arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY, width: 73, height: 64)
                 
-            case 1334:
-                print("iPhone 6/6S/7/8")
+            case 1334: // iPhone 6/6S/7/8
                 arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY, width: 73, height: 64)
                 
-            case 1920, 2208:
-                print("iPhone 6+/6S+/7+/8+")
+            case 1920, 2208: //iPhone 6+/6S+/7+/8+
                 arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY, width: 73, height: 64)
                 
-            case 2436:
-                print("iPhone X, XS")
+            case 2436: //iPhone X, XS
                 arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY+settingsButton.frame.height/2, width: 73, height: 64)
                 
-            case 2688:
-                print("iPhone XS Max")
+            case 2688: //iPhone XS Max
                 arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY+settingsButton.frame.height/2, width: 73, height: 64)
                 
-            case 1792:
-                print("iPhone XR")
+            case 1792: //iPhone XR
                 arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY+settingsButton.frame.height/2, width: 73, height: 64)
                 
-            default:
-                print("Unknown")
+            default: // Unknown
                 arrowView.frame = CGRect(x: self.view.frame.maxX-settingsButton.frame.maxX-settingsButton.frame.width*2, y: settingsButton.frame.maxY+settingsButton.frame.height/2, width: 73, height: 64)
             }
         }
@@ -267,7 +258,7 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
     }
     
     // Adjust for iPad
-    func iPadLayout(){
+    func iPadLayout() {
         schemeWidthConstraint.constant = self.view.frame.width/2
         schemeLeadingConstraint.constant = schemeLeadingConstraint.constant + 10
         gradeTrailingConstraint.constant = gradeTrailingConstraint.constant + 10
@@ -282,12 +273,12 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
         if selectedScheme == 5 || selectedScheme == 6 { //bouldering
             return grades[selectedScheme].count - 6
         }
-        else{
+        else {
             return grades[selectedScheme].count
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GradeCell", for: indexPath) as! GradeCell
         if selectedScheme == 5 || selectedScheme == 6 { //bouldering
             cell.gradeName = grades[selectedScheme][indexPath.row+6]
@@ -310,26 +301,26 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
             }
             UserDefaults.standard.set(selectedGrade, forKey: "selectedGrade")
         }
-        else{ //landed in the middle
+        else { //landed in the middle
             let center2 = CGPoint(x: center.x + 5, y: center.y)
             if let centerIndexPath = selectedGradesList.indexPathForItem(at: center2){
                 selectedGradesList.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
                 if selectedScheme == 5 || selectedScheme == 6 {
                     selectedGrade = centerIndexPath.row + 6
                 }
-                else{
+                else {
                     selectedGrade = centerIndexPath.row
                 }
                 UserDefaults.standard.set(selectedGrade, forKey: "selectedGrade")
             }
-            else{
+            else {
                 let center3 = CGPoint(x: center.x - 5, y: center.y)
                 if let centerIndexPath = selectedGradesList.indexPathForItem(at: center3){
                     selectedGradesList.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
                     if selectedScheme == 5 || selectedScheme == 6 {
                         selectedGrade = centerIndexPath.row + 6
                     }
-                    else{
+                    else {
                         selectedGrade = centerIndexPath.row
                     }
                     UserDefaults.standard.set(selectedGrade, forKey: "selectedGrade")
@@ -354,7 +345,7 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
         return 2
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 5 //routes
@@ -373,15 +364,15 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
             if indexPath.section == 0{
                 cell.label.text = schemes[indexPath.row]
             }
-            else if indexPath.section == 1{
+            else if indexPath.section == 1 {
                 cell.label.text = schemes[indexPath.row + 5]
             }
         }
         else if tableView == gradesList {
-            if indexPath.section == 0{
+            if indexPath.section == 0 {
                 cell.label.text = grades[indexPath.row][selectedGrade]
             }
-             else{
+             else {
                 cell.label.text = grades[indexPath.row+5][selectedGrade]
             }
         }
@@ -397,7 +388,7 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
         headerCell.headerLabel.textColor = .white
         headerCell.headerLabel.text = ""
         
-        if tableView == schemeList{
+        if tableView == schemeList {
             switch (section) {
             case 0:
                 headerCell.headerLabel.text = "Routes"
@@ -425,23 +416,19 @@ UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDele
         }
     }
     
-    func updateSelectedScheme(){
+    func updateSelectedScheme() {
         selectedGrade = UserDefaults.standard.integer(forKey: "selectedGrade")
         selectedScheme = UserDefaults.standard.integer(forKey: "selectedScheme")
-        
         schemeLabel.text = schemes[selectedScheme]
         gradesList.reloadData()
         selectedGradesList.reloadData()
-        var index = IndexPath()
-        if selectedScheme == 5 || selectedScheme == 6{
-            index = IndexPath(row: selectedGrade-6, section: 0)
-        }
-        else {
-            index = IndexPath(row: selectedGrade, section: 0)
-        }
-        selectedGradesList.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+    }
+    
+    func updateSelectedScheme(scheme: Int) {
+        selectedScheme = scheme
+        UserDefaults.standard.set(selectedScheme, forKey: "selectedScheme")
+        updateSelectedScheme()
     }
    
-    
 }
 

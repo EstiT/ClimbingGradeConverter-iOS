@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol RoutesDelegate {
+    func updateSelectedScheme(scheme: Int)
+}
+
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var closeButton: UIButton!
@@ -16,6 +20,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var infoText: UITextView!
     @IBOutlet weak var backgroundView: UIView!
+    var delegate: RoutesDelegate?
   
     
     var schemes: [String] = ["Ewbank", "YDS",  "French", "UK", "UIAA", "Hueco", "Font"]
@@ -66,7 +71,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }
             else {
                 backgroundView.backgroundColor = UIColor(red: CGFloat(255) / 255.0, green: CGFloat(240) / 255.0, blue: CGFloat(232) / 255.0, alpha: 1.0)
-                
             }
         }
     }
@@ -129,6 +133,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.reloadData()
         selectedScheme = indexPath.row
         UserDefaults.standard.set(selectedScheme, forKey: "selectedScheme")
+        delegate?.updateSelectedScheme(scheme: selectedScheme)
         tableView.selectRow(at: indexPath as IndexPath, animated:false, scrollPosition:UITableView.ScrollPosition(rawValue: 0)!)
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         tableView.cellForRow(at: indexPath)?.tintColor = UIColor(red: 215/255, green: 20/255, blue: 20/255, alpha: 1.0)
